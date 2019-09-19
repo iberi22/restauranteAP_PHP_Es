@@ -46,10 +46,10 @@
                         <table class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Order No.</th>
-                                    <th>Table No.</th>
-                                    <th>Cater</th>
-                                    <th>Status</th>
+                                    <th>Ornden No.</th>
+                                    <th>Mesa No.</th>
+                                    <th>Mesero</th>
+                                    <th>Esatado</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -98,11 +98,11 @@
     			<table id="table" class="table table-hover" style="font-size: 12px" >
     				<thead style="font-size: 15px;">
     					<tr>
-    					    <th>Meal</th>
-							<th width="60">Price</th>
+    					    <th>Comida</th>
+							<th width="60">Precio</th>
 							<th style="text-align: center;" width="50">Qty</th>
 							<th width="100">Sub-total</th>
-							<th style="text-align: center;" width="30">Action</th>
+							<th style="text-align: center;" width="30">Accion</th>
     					</tr>
     				</thead>
     				<tbody>

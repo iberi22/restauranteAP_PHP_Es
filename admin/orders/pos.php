@@ -47,16 +47,17 @@ input[type="checkbox"]{
     	<div class="col-lg-12">
     		<div class="row">
     			<div class="page-header">
-    				List of Orders <a href="addorder.php" class="btn-primary btn btn-s" data-toggle="lightbox" data-title="New Order"><i class="fa fa-plus-circle"></i> New Order</a>
+    				Lista de Ordenes <a href="addorder.php" class="btn-primary btn btn-s" data-toggle="lightbox" data-title="New Order">
+                    <i class="fa fa-plus-circle"></i> Nueva Orden</a>
     			</div>
                     <div id="reload" class="scrollorder">
                         <table class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Order No.</th>
-                                    <th>Table No.</th>
-                                    <th>Caterer</th>
-                                    <th>Status</th>
+                                    <th>Orden No.</th>
+                                    <th>Mesa No.</th>
+                                    <th>Mesero</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -91,10 +92,12 @@ input[type="checkbox"]{
     	<!-- order details -->
     		<div class="row">
     			<div   style="font-size: 24px;font-weight: bold;margin-top: 10px;">
-    				Order Details
+    				Detalles de ordenes
     				<small><?php echo isset($_GET['tableno']) ? " for Table Number: ". $_GET['tableno'] : "" ?> <?php echo isset($_GET['rem']) ? "| ". $_GET['rem'] : "" ?></small>
                     <span><?php echo isset($_GET['orderno']) ?  '<a href="addmeal.php?view=addmeal&orderno='.$_GET['orderno'].'&tableno='.$_GET['tableno'].'&rem='.$remarks.'" data-toggle="lightbox" class="btn btn-s btn-primary " data-title="<b>Add Meal</b>"><i class="fa fa-plus-circle"> Add Meal</i></a>' : ''; ?></span>
-    				<p style="text-align: right;font-size: 20px;">Order Number:<b style="text-decoration: underline;"> <?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?></b>
+    				<p style="text-align: right;font-size: 20px;">Numero Orden:<b style="text-decoration: underline;">
+                    <?php
+                        echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?></b>
     					<input type="hidden" name="ORDERNO" id="ORDERNO"   value="<?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?>">
                         <input type="hidden" name="tableno" id="tableno"   value="<?php echo isset($_GET['tableno']) ?  $_GET['tableno'] : "NONE" ?>">
                          <input type="hidden" name="REMARKS" id="REMARKS"   value="<?php echo isset($_GET['rem']) ?  $_GET['rem'] : "" ?>">
@@ -105,11 +108,11 @@ input[type="checkbox"]{
     			<table id="table" class="table table-hover" style="font-size: 12px" >
     				<thead>
     					<tr style="font-size: 15px;">
-    					    <th>Meal</th>
-							<th width="60">Price</th>
+    					    <th>Plato</th>
+							<th width="60">Precio</th>
 							<th width="50" style="text-align: center;">Qty</th>
-							<th width="90">Amount</th>
-							<th width="30">Action</th>
+							<th width="90">Cantidad</th>
+							<th width="30">Accion</th>
     					</tr>
     				</thead>
     				<tbody>
@@ -151,7 +154,7 @@ input[type="checkbox"]{
     		<!-- end order details -->
     		<!-- summary -->
     			<div style="font-size: 19px;font-weight: bold;margin-top:20px;margin-bottom: 3px">
-    				Summary
+    				Resumen
     			</div>
 
     			<table class="table table-bordered">
@@ -164,7 +167,7 @@ input[type="checkbox"]{
                         <tr>
                             <tr>
                                 <td>
-                                    <b style="font-size: 13px;">Discount Person(s)</b> <input type="checkbox" id="SENIORCITIZEN" name="SENIORCITIZEN" class="seniorcitizen" value="20">
+                                    <b style="font-size: 13px;">Persona de descuento(s)</b> <input type="checkbox" id="SENIORCITIZEN" name="SENIORCITIZEN" class="seniorcitizen" value="20">
                                 </td>
                                 <td>
                                     <input class="form-control" placeholder="How many persons?" type="number" id="SENIORADDNO" name="SENIORADDNO" style="width: 200px;" disabled="true">
@@ -178,18 +181,18 @@ input[type="checkbox"]{
                             <input type="hidden" name="overalltotal" id="overalltotal"   value="<?php echo number_format($total,2); ?>"></th>
                         </tr>
     					<tr>
-    						<th width="250">Tender Amount</th>
+    						<th width="250">Oferta Amount</th>
     						<th><input type="text" class="form-control"  name="tenderamount" id="tenderamount"  placeholder="&#8369 0.00" autocomplete="off"> <span id="errortrap"></span></th>
     					</tr>
     					<tr>
-    						<th width="250">Change</th>
+    						<th width="250">Cambio</th>
     						<th><input class="form-control" type="" class="sukli" readonly="true" name="sukli" id="sukli" value="" placeholder="&#8369 0.00"></th>
     					</tr>
     				</thead>
     			</table>
     			<div>
-    				<button target="_blank" type="submit" name="save" class="btn btn-primary btn-lg fa fa-save" id="save"> Save & Print</button>
-                    <a target="_blank" href="tempreceipt.php?orderno=<?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?>&tableno=<?php echo isset($_GET['tableno']) ?  $_GET['tableno'] : "NONE" ?>" class="btn btn-default btn-lg fa fa-print"> <b>Print for Cook</b></a>
+    				<button target="_blank" type="submit" name="save" class="btn btn-primary btn-lg fa fa-save" id="save"> Guardar e imprimir</button>
+                    <a target="_blank" href="tempreceipt.php?orderno=<?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?>&tableno=<?php echo isset($_GET['tableno']) ?  $_GET['tableno'] : "NONE" ?>" class="btn btn-default btn-lg fa fa-print"> <b>Imprimir para cocinar</b></a>
     			</div>
     		</div>
     		<!-- end summary -->
@@ -201,11 +204,11 @@ input[type="checkbox"]{
 function SearchTable() {
   // Declare variables
   var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
+  input  = document.getElementById("myInput");
   filter = input.value.toUpperCase();
-  table = document.getElementById("dashtable");
-  tr = table.getElementsByTagName("tr");
-  td = table.getElementsByTagName("td");
+  table  = document.getElementById("dashtable");
+  tr     = table.getElementsByTagName("tr");
+  td     = table.getElementsByTagName("td");
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {

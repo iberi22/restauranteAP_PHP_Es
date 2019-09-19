@@ -151,7 +151,13 @@
                 type:"POST",
                 url:  "controller.php?action=edit",
                 dataType: "text",
-                data:{ORDERID:id,QTY:inptqty,PRICE:price},
+                data:
+                {
+                    ORDERID: id,
+                    QTY    : inptqty,
+                    PRICE  : price
+
+                },
                 success: function(data) {
                   // alert(data);
 

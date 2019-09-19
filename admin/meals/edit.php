@@ -18,7 +18,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
 
         <div class="row">
          <div class="col-lg-12">
-            <h1 class="page-header">Update Meal</h1>
+            <h1 class="page-header">Actualizar comida</h1>
           </div>
           <!-- /.col-lg-12 -->
        </div>
@@ -27,7 +27,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
              <div class="form-group">
                     <div class="col-md-8">
                       <label style="font-size: 20px;" class="col-md-4 control-label" for=
-                      "MEALS">Meal:</label>
+                      "MEALS">Comida:</label>
 
                       <div class="col-md-8">
                             <input type="hidden" name="MEALID" value="<?php echo $singlemeal->MEALID;  ?>">
@@ -40,11 +40,11 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
                   <div class="form-group">
                     <div class="col-md-8">
                       <label style="font-size: 20px;" class="col-md-4 control-label" for=
-                      "CATEGORYID">Category:</label>
+                      "CATEGORYID">Categoria:</label>
 
                       <div class="col-md-8">
                        <select class="form-control input-lg" name="CATEGORYID" id="CATEGORYID">
-                          <option value="None">Select Category</option>
+                          <option value="None">Selecciona una categoría</option>
                           <?php
                             //Statement
 
@@ -69,7 +69,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
                   <div class="form-group">
                     <div class="col-md-8">
                        <label style="font-size: 20px;" class="col-md-4 control-label" for=
-                      "PRICE">Price:</label>
+                      "PRICE">Precio:</label>
 
                       <div class="col-md-8">
                          <input class="form-control input-lg" id="PRICE"  step="any" name="PRICE" placeholder=
@@ -86,7 +86,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
                       <label class="col-md-4 control-label" for="idno"></label>
 
                       <div class="col-md-8">
-                               <button style="width: 100%;" class="btn  btn-primary btn-lg" name="save" type="submit" ><span class="fa fa-save fw-fa"></span> Save</button>
+                               <button style="width: 100%;" class="btn  btn-primary btn-lg" name="save" type="submit" ><span class="fa fa-save fw-fa"></span> Guardar</button>
                   </div>
                     </div>
                   </div>

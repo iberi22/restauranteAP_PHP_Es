@@ -39,10 +39,10 @@ require_once("../include/initialize.php");
     <form action="" method="POST">
       <h1>Login</h1>
       <div>
-        <input type="text" placeholder="Username" required="" id="username"  name="user_email" />
+        <input type="text" placeholder="Usuario" required="" id="username"  name="user_email" />
       </div>
       <div>
-        <input type="password" placeholder="Password" required="" id="password" name="user_pass" />
+        <input type="password" placeholder="Contraseña" required="" id="password" name="user_pass" />
       </div>
       <div>
         <input type="submit" name="btnLogin" value="Log in" />

@@ -40,10 +40,10 @@ require_once("include/initialize.php");
     <form action="" method="POST">
       <h1>Login</h1>
       <div>
-        <input style="font-size: 15px;" type="text" placeholder="Username..." required="" id="username"  name="user_email" />
+        <input style="font-size: 15px;" type="text" placeholder="Usaurio..." required="" id="username"  name="user_email" />
       </div>
       <div>
-        <input style="font-size: 15px;" type="password" placeholder="Password..." required="" id="password" name="user_pass" />
+        <input style="font-size: 15px;" type="password" placeholder="Contraseña..." required="" id="password" name="user_pass" />
       </div>
       <div>
         <input style="width: 92%;" type="submit" name="btnLogin" value="Log in"/>
@@ -74,13 +74,12 @@ require_once("include/initialize.php");
  <?php
 
 if(isset($_POST['btnLogin'])){
-  $email = trim($_POST['user_email']);
-  $upass  = trim($_POST['user_pass']);
+  $email   = trim($_POST['user_email']);
+  $upass   = trim($_POST['user_pass']);
   $h_upass = sha1($upass);
 
    if ($email == '' OR $upass == '') {
-
-      message("Invalid Username or Password!", "error");
+      message("Usuario o contraseña invalido!", "error");
       redirect("login.php");
 
     } else {

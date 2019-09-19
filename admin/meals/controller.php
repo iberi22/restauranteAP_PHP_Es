@@ -41,11 +41,11 @@ function doInsert(){
 
 
 
-			$errofile = $_FILES['image']['error'];
-			$type = $_FILES['image']['type'];
-			$temp = $_FILES['image']['tmp_name'];
-			$myfile =$_FILES['image']['name'];
-		 	$location="uploaded_photos/".$myfile;
+			$errofile  = $_FILES['image']['error'];
+			$type      = $_FILES['image']['type'];
+			$temp      = $_FILES['image']['tmp_name'];
+			$myfile    = $_FILES['image']['name'];
+		 	$location  = "uploaded_photos/".$myfile;
 
 
 		if ( $errofile > 0) {
