@@ -1,4 +1,4 @@
-<?php  
+<?php
       if (!isset($_SESSION['ADMIN_USERID'])){
       redirect(web_root."admin/index.php");
      }
@@ -9,7 +9,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
     $meal = New Meal();
     $singlemeal = $meal->single_meal($MEALID);
 
-   
+
      $category = New Category();
     $singlecategory = $category->single_category($singlemeal->CATEGORYID);
   ?>
@@ -19,52 +19,52 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
         <div class="col-md-4">
          <a class="MEALID" data-target="#myModal" data-toggle="modal" href="" title="Click here to Change Image" data-id="<?php echo $singlemeal->MEALID; ?>">
             <img alt="" style="width:500px; height:400px;>"
-             title="Upload Image" class="img-circle img-thumbnail isTooltip" src="<?php echo $singlemeal->MEALPHOTO; ?>" data-original-title="Usuario"> 
-         </a>  
+             title="Upload Image" class="img-circle img-thumbnail isTooltip" src="<?php echo $singlemeal->MEALPHOTO; ?>" data-original-title="Usuario">
+         </a>
         </div>
         <div class="col-md-6">
             <h1><strong>Meal Details</strong></h1><br>
             <div class="table-responsive">
             <table class="table table-condensed table-responsive table-user-information">
                 <tbody>
-               
-                    <tr>    
+
+                    <tr>
                         <td>
                             <strong style="font-size: 20px;">
-                                   Meal                                                
+                                   Meal
                             </strong>
                         </td>
                         <td style="font-size: 20px;" class="text-primary">
-                            <?php echo ': '.$singlemeal->MEALS; ?>     
+                            <?php echo ': '.$singlemeal->MEALS; ?>
                         </td>
                     </tr>
-                    <tr>        
+                    <tr>
                         <td>
                             <strong style="font-size: 20px;">
                                 <!-- <span class="glyphicon glyphicon-cloud text-primary"></span>   -->
-                                Category                                                
+                                Category
                             </strong>
                         </td>
                         <td style="font-size: 20px;" class="text-primary">
-                            <?php echo ': '.$singlecategory->CATEGORY; ?>  
+                            <?php echo ': '.$singlecategory->CATEGORY; ?>
                         </td>
                     </tr>
 
-                    <tr>        
+                    <tr>
                         <td>
                             <strong style="font-size: 20px;">
                                 <!-- <span class="glyphicon glyphicon-bookmark text-primary"></span>  -->
-                                Price                                                
+                                Precio
                             </strong>
                         </td>
                         <td style="font-size: 20px;" class="text-primary">
-                            <?php echo ': &#8369 '.number_format($singlemeal->PRICE,2); ?> 
+                            <?php echo ': &#36; '.number_format($singlemeal->PRICE,2); ?>
                         </td>
                     </tr>
 
 
-                    
-                                 
+
+
                 </tbody>
             </table>
             </div>
@@ -72,7 +72,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
     </div>
 </div>
 </div>
-            
+
 
      <!-- Modal -->
           <div class="modal fade" id="myModal" tabindex="-1">
@@ -115,4 +115,3 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
 
- 

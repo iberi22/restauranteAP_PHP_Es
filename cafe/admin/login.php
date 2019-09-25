@@ -39,10 +39,10 @@ require_once("../include/initialize.php");
     <form action="" method="POST">
       <h1>Login</h1>
       <div>
-        <input type="text" placeholder="Username" required="" id="username"  name="user_email" />
+        <input type="text" placeholder="Nombre de usuario" required="" id="username"  name="user_email" />
       </div>
       <div>
-        <input type="password" placeholder="Password" required="" id="password" name="user_pass" />
+        <input type="password" placeholder="Contraseña" required="" id="password" name="user_pass" />
       </div>
       <div>
         <input type="submit" name="btnLogin" value="Log in" />
@@ -78,7 +78,7 @@ if(isset($_POST['btnLogin'])){
 
    if ($email == '' OR $upass == '') {
 
-      message("Invalid Username or Password!", "error");
+      message("¡Usuario o contraseña invalido!", "error");
       redirect("login.php");
 
     } else {
@@ -104,8 +104,8 @@ if(isset($_POST['btnLogin'])){
          redirect(web_root."admin/index.php");
       }
     }else{
-      message("Account does not exist! Please contact Administrator.", "error");
-       redirect(web_root."admin/login.php");
+      message("¡La cuenta no existe! Por favor, póngase en contacto con el administrador.", "error");
+       redirect("admin/login.php");
     }
  }
  }

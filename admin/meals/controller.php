@@ -97,7 +97,7 @@ function doInsert(){
 
 
 
-						message("New [ ". $_POST['MEALS'] ." ] created successfully!", "success");
+						message("New [ ". $_POST['MEALS'] ." ] creado con éxito!", "success");
 						redirect("index.php");
 						}
 
@@ -132,7 +132,7 @@ function doInsert(){
 						$meal->update($_POST['MEALID']);
 
 
-						message("[ ". $_POST['MEALS'] ." ] has been updated!", "success");
+						message("[ ". $_POST['MEALS'] ." ] Ha sido actualizado!", "success");
 						redirect("index.php");
 					}
 	  }

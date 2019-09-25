@@ -2,7 +2,7 @@
 <?php
 require_once ("../../include/initialize.php");
  	 if (!isset($_SESSION['ADMIN_USERID'])){
-      redirect(web_root."admin/index.php");
+      redirect("admin/index.php");
      }
 
 
@@ -12,36 +12,36 @@ switch ($action) {
 	case 'add' :
 	doInsert();
 	break;
-	
+
 	case 'edit' :
 	doEdit();
 	break;
-	
+
 	case 'delete' :
 	doDelete();
 	break;
 
- 
+
 	}
-   
+
 	function doInsert(){
 		if(isset($_POST['save'])){
 
 
 		if ( $_POST['AUTOSTART'] == "" ) {
 			$messageStats = false;
-			message("All field is required!","error");
+			message("Todo el campo es obligatorio!","error");
 			redirect('index.php?view=add');
-		}else{	
+		}else{
 			$autonumber = New Autonumber();
-			$autonumber->AUTOSTART	= $_POST['AUTOSTART']; 
+			$autonumber->AUTOSTART	= $_POST['AUTOSTART'];
 			$autonumber->AUTOEND	= $_POST['AUTOEND'];
 			$autonumber->AUTOKEY	= $_POST['AUTOKEY'];
 			$autonumber->create();
 
-			message("New Autonumber created successfully!", "success");
+			message("Nuevo número automático creado con éxito!", "success");
 			redirect("index.php");
-			
+
 		}
 		}
 
@@ -51,11 +51,11 @@ switch ($action) {
 		if(isset($_POST['save'])){
 
 			$autonumber = New Autonumber();
-			$autonumber->AUTOSTART	= $_POST['AUTOSTART']; 
-			$autonumber->AUTOEND	= $_POST['AUTOEND']; 
+			$autonumber->AUTOSTART	= $_POST['AUTOSTART'];
+			$autonumber->AUTOEND	= $_POST['AUTOEND'];
 			$autonumber->update($_POST['AUTOKEY']);
 
-			message(" Autonumber has been updated!", "success");
+			message(" El número automático ha sido actualizado!", "success");
 			redirect("index.php");
 		}
 
@@ -73,7 +73,7 @@ switch ($action) {
 			$autonumber = New Autonumber();
 			$autonumber->delete($id);
 
-			message("Autonumber already Deleted!","info");
+			message("Número automático ya eliminado!","info");
 			redirect('index.php');
 
 		// $id = $_POST['selector'];
@@ -88,6 +88,6 @@ switch ($action) {
 		// 	redirect('index.php');
 		// }
 		// }
-		
+
 	}
 ?>

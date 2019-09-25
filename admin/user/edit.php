@@ -15,7 +15,7 @@
  <form class="form-horizontal span6" action="controller.php?action=edit" method="POST">
 
           <fieldset>
-            <h1 class="page-header"> Update User Account</h1>
+            <h1 class="page-header"> Actualizar cuenta de usuario</h1>
 
                     <!-- <div class="form-group">
                     <div class="col-md-8">
@@ -32,12 +32,12 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label style="font-size: 20px;" class="col-md-4 control-label" for=
-                      "U_NAME">Name:</label>
+                      "U_NAME">Nombre:</label>
 
                       <div class="col-md-8">
                         <input name="deptid" type="hidden" value="">
                          <input class="form-control input-lg" id="U_NAME" name="U_NAME" placeholder=
-                            "Account Name" type="text" value="<?php echo $singleuser->FULLNAME; ?>" required>
+                            "Nombre de la cuenta" type="text" value="<?php echo $singleuser->FULLNAME; ?>" required>
                       </div>
                     </div>
                   </div>
@@ -45,7 +45,7 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label style="font-size: 20px;" class="col-md-4 control-label" for=
-                      "U_USERNAME">Username:</label>
+                      "U_USERNAME">Nombre de usuario:</label>
 
                       <div class="col-md-8">
                         <input name="deptid" type="hidden" value="">
@@ -58,26 +58,26 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label style="font-size: 20px;" class="col-md-4 control-label" for=
-                      "U_PASS">Password:</label>
+                      "U_PASS">Contraseña:</label>
 
                       <div class="col-md-8">
                         <input name="deptid" type="hidden" value="">
                          <input class="form-control input-lg" id="U_PASS" name="U_PASS" placeholder=
-                            "Account Password" type="Password" value="" required>
+                            "Contraseña de cuenta" type="Password" value="" required>
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-md-8">
                       <label style="font-size: 20px;" class="col-md-4 control-label" for=
-                      "U_ROLE">Role:</label>
+                      "U_ROLE">Rol:</label>
 
                       <div class="col-md-8">
                        <select class="form-control input-lg" name="U_ROLE" id="U_ROLE">
-                          <option value="Administrator"  <?php echo ($singleuser->ROLE=='Administrator') ? 'selected="true"': '' ; ?>>Administrator</option>
-                          <option value="Cashier" <?php echo ($singleuser->ROLE=='Cashier') ? 'selected="true"': '' ; ?>>Cashier</option>
+                          <option value="Administrator"  <?php echo ($singleuser->ROLE=='Administrator') ? 'selected="true"': '' ; ?>>Administrador</option>
+                          <option value="Cashier" <?php echo ($singleuser->ROLE=='Cashier') ? 'selected="true"': '' ; ?>>Cajero</option>
                           <!-- <option value="Customer">Customer</option> -->
-                          <option value="Waiter" <?php echo ($singleuser->ROLE=='Waiter') ? 'selected="true"': '' ; ?>>Waiter</option>
+                          <option value="Waiter" <?php echo ($singleuser->ROLE=='Waiter') ? 'selected="true"': '' ; ?>>Mesero</option>
                         </select>
                       </div>
                     </div>
@@ -90,7 +90,7 @@
                       "idno"></label>
 
                       <div class="col-md-8">
-                         <button style="width: 100%;" class="btn btn-primary btn-lg" name="save" type="submit" ><span class="fa fa-save fw-fa"></span> Save</button>
+                         <button style="width: 100%;" class="btn btn-primary btn-lg" name="save" type="submit" ><span class="fa fa-save fw-fa"></span> Guardar</button>
                           <!-- <a href="index.php" class="btn btn-info"><span class="fa fa-arrow-circle-left fw-fa"></span>&nbsp;<strong>List of Users</strong></a> -->
                       </div>
                     </div>

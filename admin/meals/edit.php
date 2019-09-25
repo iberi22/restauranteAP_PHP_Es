@@ -27,7 +27,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
              <div class="form-group">
                     <div class="col-md-8">
                       <label style="font-size: 20px;" class="col-md-4 control-label" for=
-                      "MEALS">Comida:</label>
+                      "MEALS">Plato:</label>
 
                       <div class="col-md-8">
                             <input type="hidden" name="MEALID" value="<?php echo $singlemeal->MEALID;  ?>">
@@ -73,7 +73,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
 
                       <div class="col-md-8">
                          <input class="form-control input-lg" id="PRICE"  step="any" name="PRICE" placeholder=
-                            "&#8369 Price " type="text" value="<?php echo $singlemeal->PRICE?>" required>
+                            "&#36; Precio " type="text" value="<?php echo $singlemeal->PRICE?>" required>
                       </div>
                     </div>
                   </div>

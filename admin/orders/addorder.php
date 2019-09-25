@@ -33,7 +33,7 @@ require_once("../../include/initialize.php");
 </style>
 <!-- Nav tabs -->
 <ul style="margin-bottom: 10px;" class="nav nav-pills">
-    <li class="active"><a href="#home" data-toggle="tab">List of Meals</a>
+    <li class="active"><a href="#home" data-toggle="tab">Lista de comidas</a>
     </li>
     <li>
       <a href="#profile" data-toggle="tab">
@@ -55,15 +55,15 @@ require_once("../../include/initialize.php");
       <BR/> -->
       <div  id="resulttable">
 
-      <input class="form-control" id="myInput" placeholder="Search here..." style="font-size: 20px; margin-bottom: 10px;" type="search" name="SearchMe" onkeyup="SearchTable()">
+      <input class="form-control" id="myInput" placeholder="Busca aquí..." style="font-size: 20px; margin-bottom: 10px;" type="search" name="SearchMe" onkeyup="SearchTable()">
 
       <table id="dashtable" class="table table-striped table-bordered table-hover " cellspacing="0" >
            <thead style="font-size: 15px;">
             <tr>
-              <th>Meals</th>
-              <th width="200">Categories</th>
-              <th width="80">Price</th>
-              <th width="20">Action</th>
+              <th>Platos(comidas)</th>
+              <th width="200">Categoría</th>
+              <th width="80">Precio</th>
+              <th width="20">Acciones</th>
             </tr>
           </thead>
 
@@ -79,7 +79,7 @@ require_once("../../include/initialize.php");
               echo '<td style="font-size:15px;">'.$result->MEALS.'</a></td>';
 
               echo '<td>'. $result->CATEGORY.'</td>';
-              echo '<td> &#8369 '.  number_format($result->PRICE,2).'</td>';
+              echo '<td> &#36; '.  number_format($result->PRICE,2).'</td>';
               echo '<td align="center">
                    <a  title="Add to Cart" class="btn btn-primary btn-sm addcartadmin" data-id="'.$result->MEALID.'">  <span class="fa fa-shopping-cart fw-fa"></a> </a></td>';
               echo '</tr>';
@@ -130,10 +130,10 @@ require_once("../../include/initialize.php");
 <thead>
   <tr>
   <th>Meal</th>
-  <th width="80">Price</th>
+  <th width="80">precio</th>
   <th width="80">Qty</th>
   <th width="80">Sub-total</th>
-  <th width="20">Action</th>
+  <th width="20">Acciones</th>
   </tr>
 </thead>
 <tbody>
@@ -161,7 +161,7 @@ require_once("../../include/initialize.php");
           }
                 // echo  '<tr>
                 //             <td colspan="3" ><p class="stot">Total</p></td>
-                //             <td> &#8369 <span id="sum" class="stot">'. $subtotal.'</span></td>
+                //             <td> &#36; <span id="sum" class="stot">'. $subtotal.'</span></td>
                 //             <td>
                 //           </tr>';
 
@@ -176,7 +176,7 @@ require_once("../../include/initialize.php");
 
              <div id="placeorder">
               <div class="row" >
-                <label class="col-xs-2"  style="height: 30px;text-align:  center; font-size: 13px">Table No.</label>
+                <label class="col-xs-2"  style="height: 30px;text-align:  center; font-size: 13px">Mesa No.</label>
                 <div class="col-xs-2">
                   <select style="font-size: 15px; font-weight: bold;" name="tableno" id="tableno">
 
@@ -203,12 +203,12 @@ require_once("../../include/initialize.php");
 
                    <div class="col-xs-2">
                   <select  style="font-size: 15px;" name="REMARKS" id="REMARKS">
-                    <option value="DineIn">Dine In</option>
-                    <option value="TakeOut">Take Out</option>
+                    <option value="DineIn">Servir en mesa(Dine in)</option>
+                    <option value="TakeOut">Para llevar(Take Out)</option>
                   </select>
                 </div>
                 <div class="col-xs-2">
-                   <button  style="height: 30px;text-align:  center; font-size: 12px;"  type="submit" id="submit" name="submit" class="text-center btn btn-primary  btn-sm">Place Order</button>
+                   <button  style="height: 30px;text-align:  center; font-size: 12px;"  type="submit" id="submit" name="submit" class="text-center btn btn-primary  btn-sm">Realizar pedido</button>
                 </div>
               </div>
              </div>
@@ -237,11 +237,11 @@ require_once("../../include/initialize.php");
 function SearchTable() {
   // Declare variables
   var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
+  input  = document.getElementById("myInput");
   filter = input.value.toUpperCase();
-  table = document.getElementById("dashtable");
-  tr = table.getElementsByTagName("tr");
-  td = table.getElementsByTagName("td");
+  table  = document.getElementById("dashtable");
+  tr     = table.getElementsByTagName("tr");
+  td     = table.getElementsByTagName("td");
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {

@@ -48,9 +48,9 @@ require_once("../../include/initialize.php");
       <table id="dash-table2"  class="table table-striped table-bordered table-hover "  style="font-size:11px" cellspacing="0" >
            <thead>
             <tr>
-              <th>Meals</th>
-              <th width="100">Categories</th>
-              <th width="80">Price</th>
+              <th>Platos</th>
+              <th width="100">Categorias</th>
+              <th width="80">Precio</th>
               <th width="20"></th>
             </tr>
           </thead>
@@ -67,7 +67,7 @@ require_once("../../include/initialize.php");
               echo '<td>'.$result->MEALS.'</a></td>';
 
               echo '<td>'. $result->CATEGORY.'</td>';
-              echo '<td> &#8369 '.  number_format($result->PRICE,2).'</td>';
+              echo '<td> &#36; '.  number_format($result->PRICE,2).'</td>';
               echo '<td align="center">
                    <a  title="Add to Cart" class="btn btn-primary btn-xs addcartadmin" data-id="'.$result->MEALID.'">  <span class="fa fa-shopping-cart fw-fa"></a> </a></td>';
               echo '</tr>';
@@ -117,11 +117,11 @@ require_once("../../include/initialize.php");
 <table id="table" class="table table-responsive">
 <thead>
   <tr>
-  <th>Meal</th>
-  <th width="80">Price</th>
+  <th>Plato</th>
+  <th width="80">Precio</th>
   <th width="80">Qty</th>
   <th width="80">Sub-total</th>
-  <th width="20">Action</th>
+  <th width="20">Acciones</th>
   </tr>
 </thead>
 <tbody>
@@ -149,7 +149,7 @@ require_once("../../include/initialize.php");
           }
                 // echo  '<tr>
                 //             <td colspan="3" ><p class="stot">Total</p></td>
-                //             <td> &#8369 <span id="sum" class="stot">'. $subtotal.'</span></td>
+                //             <td> &#36; <span id="sum" class="stot">'. $subtotal.'</span></td>
                 //             <td>
                 //           </tr>';
 
@@ -164,7 +164,7 @@ require_once("../../include/initialize.php");
 
              <div id="placeorder">
               <div class="row" >
-                <label class="col-xs-2"  style="height: 30px;text-align:  center; font-size: 13px">Table No.</label>
+                <label class="col-xs-2"  style="height: 30px;text-align:  center; font-size: 13px">Mesa No.</label>
                 <div class="col-xs-2">
                   <select style="font-size:15px;" name="tableno" id="tableno">
 
@@ -191,12 +191,12 @@ require_once("../../include/initialize.php");
 
                    <div style="font-size:15px;" class="col-xs-2">
                   <select style="font-size:15px;" name="REMARKS" id="REMARKS">
-                    <option value="DineIn">Dine In</option>
-                    <option value="TakeOut">Take Out</option>
+                    <option value="DineIn">Cenar en mesa(Dine In)</option>
+                    <option value="TakeOut">Para llevar (Take Out)</option>
                   </select>
                 </div>
                 <div class="col-xs-2">
-                   <button  style="height: 30px;text-align:  center; font-size: 12px"  type="submit" id="submit" name="submit" class="text-center btn btn-primary  btn-xs">Place Order</button>
+                   <button  style="height: 30px;text-align:  center; font-size: 12px"  type="submit" id="submit" name="submit" class="text-center btn btn-primary  btn-xs">Realizar pedido</button>
                 </div>
               </div>
              </div>

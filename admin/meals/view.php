@@ -54,11 +54,11 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
                         <td>
                             <strong style="font-size: 20px;">
                                 <!-- <span class="glyphicon glyphicon-bookmark text-primary"></span>  -->
-                                Price
+                                Precio
                             </strong>
                         </td>
                         <td style="font-size: 20px;" class="text-primary">
-                            <?php echo ': &#8369 '.number_format($singlemeal->PRICE,2); ?>
+                            <?php echo ': &#36; '.number_format($singlemeal->PRICE,2); ?>
                         </td>
                     </tr>
 

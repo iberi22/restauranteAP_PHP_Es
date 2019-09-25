@@ -17,13 +17,13 @@
 
 				  <thead>
 				  	<tr>
-				  		<th width="12%" style="font-size: 15px; text-align: center;">Account ID</th>
+				  		<th width="12%" style="font-size: 15px; text-align: center;">ID de la cuenta</th>
 				  		<th style="font-size: 15px;">
 				  		 <!-- <input type="checkbox" name="chkall" id="chkall" onclick="return checkall('selector[]');">  -->
-				  		Account Name</th>
-				  		<th style="font-size: 15px;">Username</th>
-				  		<th style="font-size: 15px;">Role</th>
-				  		<th style="font-size: 15px; text-align: center;" width="20%" >Action</th>
+				  		Nombre de la cuenta</th>
+				  		<th style="font-size: 15px;">Nombre de usuario</th>
+				  		<th style="font-size: 15px;">Rol</th>
+				  		<th style="font-size: 15px; text-align: center;" width="20%" >Acciones</th>
 
 				  	</tr>
 				  </thead>

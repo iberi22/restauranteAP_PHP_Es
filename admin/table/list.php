@@ -22,7 +22,7 @@
 				  		 <th style="font-size: 15px;" width="20%">Cliente</th>
 				  		 <th style="font-size: 15px;" width="11%">Tiempo</th>
 				  		 <th style="font-size: 15px; text-align: center;" width="10%">Estado</th>
-				  		 <th style="font-size: 15px; text-align: center;" width="23%">Accion</th>
+				  		 <th style="font-size: 15px; text-align: center;" width="23%">Acciones</th>
 				  	</tr>
 				  </thead>
 				  <tbody>

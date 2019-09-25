@@ -2,7 +2,7 @@
 <?php
 require_once ("../../include/initialize.php");
  	 if (!isset($_SESSION['ADMIN_USERID'])){
-      redirect(web_root."admin/index.php");
+      redirect("admin/index.php");
      }
 
 
@@ -12,34 +12,34 @@ switch ($action) {
 	case 'add' :
 	doInsert();
 	break;
-	
+
 	case 'edit' :
 	doEdit();
 	break;
-	
+
 	case 'delete' :
 	doDelete();
 	break;
 
- 
+
 	}
-   
+
 	function doInsert(){
 		if(isset($_POST['save'])){
 
 
 		if ( $_POST['CATEGORY'] == "" ) {
 			$messageStats = false;
-			message("All field is required!","error");
+			message("Todo el campo es obligatorio!","error");
 			redirect('index.php?view=add');
-		}else{	
+		}else{
 			$category = New Category();
 			$category->CATEGORY	= $_POST['CATEGORY'];
 			$category->create();
 
-			message("New [". $_POST['CATEGORY'] ."] created successfully!", "success");
+			message("New [". $_POST['CATEGORY'] ."] creado con éxito!", "success");
 			redirect("index.php");
-			
+
 		}
 		}
 
@@ -52,7 +52,7 @@ switch ($action) {
 			$category->CATEGORY	= $_POST['CATEGORY'];
 			$category->update($_POST['CATEGORYID']);
 
-			message("[". $_POST['CATEGORY'] ."] has been updated!", "success");
+			message("[". $_POST['CATEGORY'] ."] Ha sido actualizado!", "success");
 			redirect("index.php");
 		}
 
@@ -70,7 +70,7 @@ switch ($action) {
 			$category = New Category();
 			$category->delete($id);
 
-			message("Category has been Deleted!","info");
+			message("La categoría ha sido eliminada!","info");
 			redirect('index.php');
 
 		// $id = $_POST['selector'];
@@ -85,6 +85,6 @@ switch ($action) {
 		// 	redirect('index.php');
 		// }
 		// }
-		
+
 	}
 ?>

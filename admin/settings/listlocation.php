@@ -16,7 +16,7 @@
 				  	<tr>
 				  		<th>Place</th>
 				  		<th>Delivery Fee</th>
-				  		<th>Action</th>
+				  		<th>Acciones</th>
 				  	</tr>
 				  </thead>
 
@@ -30,7 +30,7 @@
 				  		echo '<tr>';
 
 				  		echo '<td>'.$result->PLACE.' </a></td>';  ;
-				  		echo '<td> &#8369 '.  number_format($result->DELPRICE,2).'</td>';
+				  		echo '<td> &#36; '.  number_format($result->DELPRICE,2).'</td>';
 				  		echo
 				  		 '<td align="left">
 							<a href="../admin/settings/index.php?view=edit&id='.$result->SETTINGID.'" class="btn btn-primary btn-xs">Edit</a>

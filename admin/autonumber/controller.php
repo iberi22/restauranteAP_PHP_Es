@@ -30,7 +30,7 @@ switch ($action) {
 
 		if ( $_POST['AUTOSTART'] == "" ) {
 			$messageStats = false;
-			message("All field is required!","error");
+			message("Todo el campo es obligatorio!","error");
 			redirect('index.php?view=add');
 		}else{
 			$autonumber = New Autonumber();

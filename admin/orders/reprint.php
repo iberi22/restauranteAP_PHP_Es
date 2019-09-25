@@ -53,7 +53,7 @@
 </head>
 <?php
 
-date_default_timezone_set('Asia/Manila');
+date_default_timezone_set('America/Santiago');
 
 ?>
 
@@ -92,18 +92,18 @@ date_default_timezone_set('Asia/Manila');
 <!--         <div style="text-align: center;font-size: 8px; margin-bottom: 10px;"><?php echo $remarks; ?></div> -->
     <table  class="tables">
         <tr style="border-bottom: .5px solid; font-size: 8px;margin-bottom: 5px;">
-            <td colspan="3" align="center" style="padding-bottom: 3px;">Table No: <?php echo $tableno; ?> | Order No.: <?php echo $orderno?></td>
+            <td colspan="3" align="center" style="padding-bottom: 3px;">Mesa No: <?php echo $tableno; ?> | Order No.: <?php echo $orderno?></td>
         </tr>
         <tr style="margin-bottom:5px;margin-top:5px;">
         <?php
-                        $total = 0;
-                        $tableno = 0;
-                        $vat=0;
-                        $vatable = 0;
-                        $regbill = 0;
-                        $waiter="";
-                        $senior=0;
-                        $totdiscount=0;
+                        $total       = 0;
+                        $tableno     = 0;
+                        $vat         = 0;
+                        $vatable     = 0;
+                        $regbill     = 0;
+                        $waiter      = "";
+                        $senior      = 0;
+                        $totdiscount = 0;
                             if (isset($_POST['orderno'])) {
                                 # code...
 

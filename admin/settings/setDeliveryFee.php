@@ -51,11 +51,11 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "DELPRICE">Price:</label>
+                      "DELPRICE">Precio:</label>
 
                       <div class="col-md-8">
                              <input class="form-control input-sm" id="DELPRICE" name="DELPRICE" placeholder=
-                            "Delivery Price" type="text" value="<?php echo $set->DELPRICE ?>">
+                            "Delivery Precio" type="text" value="<?php echo $set->DELPRICE ?>">
                       </div>
                     </div>
                   </div>
@@ -120,7 +120,7 @@
                       <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "DELPRICE">Price:</label>
+                      "DELPRICE">Precio:</label>
 
                       <div class="col-md-8">
                              <input class="form-control input-sm" id="DELPRICE" name="DELPRICE" placeholder=

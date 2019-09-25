@@ -33,8 +33,8 @@ $tableno = "";
 				  	<tr>
 						<th>Meals</th>
 						<th width="100">Categories</th>
-						<th width="70">Price</th>
-						<th width="20">Action</th>
+						<th width="70">Precio</th>
+						<th width="20">Acciones</th>
 				  	</tr>
 				  </thead>
 
@@ -50,7 +50,7 @@ $tableno = "";
 				  		echo '<td>'.$result->MEALS.'</a></td>';
 
 				  		echo '<td>'. $result->CATEGORY.'</td>';
-				  		echo '<td > &#8369 '.number_format($result->PRICE,2).'</td>';
+				  		echo '<td > &#36; '.number_format($result->PRICE,2).'</td>';
 
 				  	 	echo '<td align="center" >
 				  	 	     <a title="Add Meal"  data-id="'.$result->MEALID.'" class="btn btn-primary btn-xs addmeal">  <span class="fa fa-plus fw-fa"></a></td>';

@@ -87,7 +87,7 @@
 			<tr bgcolor="skyblue" style="font-weight: bold; font-size: 15px;">
 				<!-- <td width="150">Order#</td> -->
 				<!-- <td>Description</td>
-				<td width="100" align="center">Price</td>
+				<td width="100" align="center">Precio</td>
 				<td width="100" align="center">Quantity</td>
 				<td width="100" align="center">Sub-total</td> -->
 				<td>Order Number</td>
@@ -128,10 +128,10 @@
 				   foreach ($cur as $result) {
 				   	echo '<tr style="font-size:15px; background-color:#F0F8FF;"  data-tt-id="1'.$result->ORDERNO.'">';
 				   	echo '<td>'.$result->ORDERNO.'</td>';
-				   	echo '<td>&#8369; '.number_format($result->OVERALLTOTAL,2).'</td>';
-				   	echo '<td>&#8369; '.number_format($result->DISCOUNTSENIOR,2).'</td>';
+				   	echo '<td>&#36;; '.number_format($result->OVERALLTOTAL,2).'</td>';
+				   	echo '<td>&#36;; '.number_format($result->DISCOUNTSENIOR,2).'</td>';
 				   	echo '<td>'.$result->SENIORID.'</td>';
-				   	echo '<td>&#8369; '.number_format($result->TOTALPAYMENT,2).'</td>';
+				   	echo '<td>&#36;; '.number_format($result->TOTALPAYMENT,2).'</td>';
 				  echo '</tr>';
 
 				// 	# code...
@@ -149,7 +149,7 @@
 
 					 			echo '<tr style="font-size:14px; background-color:#DCDCDC;"  data-tt-id="2" data-tt-parent-id="1'.$result->ORDERNO.'">';
 							   	echo '<td colspan="2">Description</td>';
-							   	echo '<td>Price</td>';
+							   	echo '<td>Precio</td>';
 							   	echo '<td>QUANTITY</td>';
 							   	echo '<td>Subtotal</td>';
 							   	echo '</tr>';
@@ -161,9 +161,9 @@
 						  foreach ($row as $res) {
 						  		echo '<tr style="font-size:13px;" data-tt-id="2" data-tt-parent-id="1'.$result->ORDERNO.'">';
 							   	echo '<td style="font-size:11px;" colspan="2">'.$res->DESCRIPTION.'</td>';
-							   	echo '<td style="font-size:13px;">&#8369; '.number_format($res->PRICE,2).'</td>';
+							   	echo '<td style="font-size:13px;">&#36;; '.number_format($res->PRICE,2).'</td>';
 							   	echo '<td style="text-align:center; font-size:13px;">'.$res->QUANTITY.'</td>';
-							   	echo '<td style="font-size:13px;">&#8369; '.number_format($res->SUBTOTAL,2).'</td>';
+							   	echo '<td style="font-size:13px;">&#36;; '.number_format($res->SUBTOTAL,2).'</td>';
 							   	echo '</tr>';
 						  }
 					// echo '</table>';
@@ -196,9 +196,9 @@
 		<tfoot>
 			<tr style="font-size: 15px;">
 				<td align="center" style="font-weight: bold;">TOTAL</td>
-				<td width="100" style="background-color: #E74C3C;color:#fff; text-align: center; font-weight: bold;">&#8369; <?php echo number_format($total,2);?></td>
-				<td width="100" style="background-color: #E74C3C;color:#fff; text-align: center; font-weight: bold;">&#8369; <?php echo number_format($qty,2) ;?></td>
-				<td width="100" style="background-color: #E74C3C; color:#fff; text-align: center; font-weight: bold;">&#8369; <?php echo number_format($price,2) ;?></td>
+				<td width="100" style="background-color: #E74C3C;color:#fff; text-align: center; font-weight: bold;">&#36;; <?php echo number_format($total,2);?></td>
+				<td width="100" style="background-color: #E74C3C;color:#fff; text-align: center; font-weight: bold;">&#36;; <?php echo number_format($qty,2) ;?></td>
+				<td width="100" style="background-color: #E74C3C; color:#fff; text-align: center; font-weight: bold;">&#36;; <?php echo number_format($price,2) ;?></td>
 			</tr>
 		</tfoot>
 		</table>

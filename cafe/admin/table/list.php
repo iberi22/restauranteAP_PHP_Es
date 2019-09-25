@@ -1,7 +1,7 @@
-<?php 
+<?php
 	  if (!isset($_SESSION['ADMIN_USERID'])){
       redirect(web_root."admin/index.php");
-     } 
+     }
 ?>
 	<div class="row">
        	 <div class="col-lg-12">
@@ -9,29 +9,29 @@
        		</div>
         	<!-- /.col-lg-12 -->
    		 </div>
-	 		    <form action="controller.php?action=delete" Method="POST">  	
-			     <div class="table-responsive">					
+	 		    <form action="controller.php?action=delete" Method="POST">
+			     <div class="table-responsive">
 				<table id="dash-table" class="table table-striped table-bordered table-hover"  style="font-size:12px" cellspacing="0">
-				
+
 				  <thead>
 				  	<tr>
 				  		<!-- <th>No.</th> -->
 				  		<th style="font-size: 15px; text-align: center;" width="10%">
 				  		 <!-- <input type="checkbox" name="chkall" id="chkall" onclick="return checkall('selector[]');">  -->
 				  		 Numero Mesa</th>
-				  		 <th style="font-size: 15px;" width="20%">Cliente</th> 
+				  		 <th style="font-size: 15px;" width="20%">Cliente</th>
 				  		 <th style="font-size: 15px;" width="11%">Tiempo</th>
 				  		 <th style="font-size: 15px; text-align: center;" width="10%">Estado</th>
-				  		 <th style="font-size: 15px; text-align: center;" width="23%">Accion</th>
-				  	</tr>	
-				  </thead> 
+				  		 <th style="font-size: 15px; text-align: center;" width="23%">Acciones</th>
+				  	</tr>
+				  </thead>
 				  <tbody>
-				  	<?php 
+				  	<?php
 				  		$mydb->setQuery("SELECT * FROM `tbltable` ORDER BY TABLENO ASC");
 				  		$cur = $mydb->loadResultList();
 
 						foreach ($cur as $result) {
-				  		echo '<tr>'; 
+				  		echo '<tr>';
 
 				  	    if ($result->STATUS=='Reserved') {
 				  			# code...
@@ -44,18 +44,18 @@
 				  			$time =$result->RESERVEDTIME;
 				  			$url ="controller.php?action=reserve&id=".$result->TABLEID;
 				  			$customer = $result->CUSTOMER;
-				  			
+
 				  		}elseif ($result->STATUS=='Available') {
 				  			# code...
 				  			$btn = "Reserve";
 				  			$reservebtn = "Reserve";
 				  			$titlebtn = "Cancel";
 				  			$resdisable = "";
-				  			$disable = ''; 
+				  			$disable = '';
 				  	        $time ="";
 				  	        $url ="index.php?view=add&id=".$result->TABLEID;
 				  	        $customer = "";
-				  			 
+
 				  		}elseif ($result->STATUS=='Occupied') {
 				  			# code...
 				  		    $btn = "Occupied";
@@ -74,7 +74,7 @@
 
 				  			echo  '<td style="font-size:20px;">'.$time.'</td>';
 				  			echo '<td style="font-size:20px; text-align:center;">' . $result->STATUS.'</td>';
- 
+
 				  		echo '<td align="center"><a title="Edit" href="index.php?view=edit&id='.$result->TABLEID.'" class="btn btn-primary btn-s">  <span class="fa fa-pencil fw-fa"> Edit table No.</a>
 				  			<a title="'.$reservebtn.'" href="'.$url.'" class="btn btn-success btn-s  click_reserve" '.$disable.'>  <span class="fa fa-bookmark fw-fa"> '.$btn.'</a>
 				  		     <a title="Remove" href="controller.php?action=delete&id='.$result->TABLEID.'" class="btn btn-danger btn-s  "'.$disable.''.$resdisable.'>  <span class="fa  fa-trash-o fw-fa " > Remove</a></td>';
@@ -82,10 +82,10 @@
 				  		     // Reserve Button
 				  		//echo '<a title="'.$reservebtn.'" href="'.$url.'" class="btn btn-success btn-s  click_reserve" '.$disable.'>  <span class="fa fa-bookmark fw-fa"> '.$btn.'</a>';
 				  		echo '</tr>';
-				  	} 
+				  	}
 				  	?>
 				  </tbody>
-					
+
 				</table>
 						<div class="btn-group">
 				 <!--  <a href="index.php?view=add" class="btn btn-default">New</a> -->
@@ -94,8 +94,8 @@
 					// echo '<button type="submit" class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete Selected</button'
 					; }?>
 				</div>
-			
-			
+
+
 				</form>
-	
- <div class="table-responsive">	 
+
+ <div class="table-responsive">

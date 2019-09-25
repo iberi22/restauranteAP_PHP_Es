@@ -16,12 +16,12 @@
 				  	<tr>
 				  		<!-- <th>Model</th>  -->
 				  		<!-- <th align="left"><input type="checkbox" name="chkall" id="chkall" onclick="return checkall('selector[]');"> Product</th>  -->
-				  		<th>Product</th>
-				  		<th>Description</th>
-				  		<!-- <th>Category</th> -->
-				  		<th>Price</th>
+				  		<th>Producto</th>
+				  		<th>Descripcion</th>
+				  		<!-- <th>Categoria</th> -->
+				  		<th>Precio</th>
 				  		<!-- <th>Quantity</th>   -->
-				  		<th>Action</th>
+				  		<th>Acciones</th>
 
 				  	</tr>
 				  </thead>
@@ -41,7 +41,7 @@
 
 				  		echo '<td>'. $result->CATEGORIES.', '. $result->PRODESC.'</td>';
 				  		// echo '<td>'. $result->CATEGORIES.'</td>';
-				  		echo '<td> &#8369 '.  number_format($result->PRODISPRICE,2).'</td>';
+				  		echo '<td> &#36; '.  number_format($result->PRODISPRICE,2).'</td>';
 				  		// echo '<td width="4%">'. $result->PROQTY.'</td>'; .
 
 				  		if ($result->PROSTATS=='Available'){

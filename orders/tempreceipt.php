@@ -79,7 +79,7 @@
                         <tr>
                             <th>Meal</th>
                             <th width="60" style="text-align: center;">Qty</th>
-                            <th width="50" style="text-align: center;">Price</th>
+                            <th width="50" style="text-align: center;">Precio</th>
                             <th width="100" style="text-align: center;">Sub-total</th>
                         </tr>
                     </thead>

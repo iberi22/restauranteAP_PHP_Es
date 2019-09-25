@@ -73,7 +73,7 @@
 			<tr bgcolor="skyblue" style="font-weight: bold; font-size: 15px;">
 				<!-- <td width="150">Order#</td> -->
 				<td>Description</td>
-				<td width="100" align="center">Price</td>
+				<td width="100" align="center">Precio</td>
 				<td width="100" align="center">Quantity</td>
 				<td width="100" align="center">Sub-total</td>
 			</tr>

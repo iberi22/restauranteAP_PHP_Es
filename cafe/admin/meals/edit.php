@@ -1,11 +1,11 @@
-<?php  
+<?php
  if (!isset($_SESSION['ADMIN_USERID'])){
       redirect(web_root."admin/index.php");
-     } 
+     }
 if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
   redirect(web_root."admin/index.php");
 }
-  
+
 
 
 
@@ -14,8 +14,8 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
   $singlemeal = $menus->single_meal($MEALID);
 
 ?>
-  
-        
+
+
         <div class="row">
          <div class="col-lg-12">
             <h1 class="page-header">Update Meal</h1>
@@ -23,7 +23,7 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
           <!-- /.col-lg-12 -->
        </div>
        <form class="form-horizontal span6" action="controller.php?action=edit" method="POST"  />
- 
+
              <div class="form-group">
                     <div class="col-md-8">
                       <label style="font-size: 20px;" class="col-md-4 control-label" for=
@@ -35,8 +35,8 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
                             "Meal" type="text" value="<?php echo $singlemeal->MEALS ?>" required>
                       </div>
                     </div>
-                  </div> 
-                  
+                  </div>
+
                   <div class="form-group">
                     <div class="col-md-8">
                       <label style="font-size: 20px;" class="col-md-4 control-label" for=
@@ -59,28 +59,28 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
                           echo  '<option  value='.$result->CATEGORYID.' >'.$result->CATEGORY.'</option>';
                           }
                           ?>
-          
-                        </select> 
+
+                        </select>
                       </div>
                     </div>
                   </div>
 
 
                   <div class="form-group">
-                    <div class="col-md-8"> 
+                    <div class="col-md-8">
                        <label style="font-size: 20px;" class="col-md-4 control-label" for=
-                      "PRICE">Price:</label>
+                      "PRICE">Precio:</label>
 
                       <div class="col-md-8">
                          <input class="form-control input-lg" id="PRICE"  step="any" name="PRICE" placeholder=
-                            "&#8369 Price " type="text" value="<?php echo $singlemeal->PRICE?>" required>
+                            "&#36; Precio " type="text" value="<?php echo $singlemeal->PRICE?>" required>
                       </div>
                     </div>
                   </div>
 
-                 
-                   
-                  
+
+
+
              <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for="idno"></label>
@@ -89,12 +89,12 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
                                <button style="width: 100%;" class="btn  btn-primary btn-lg" name="save" type="submit" ><span class="fa fa-save fw-fa"></span> Save</button>
                   </div>
                     </div>
-                  </div> 
-            
- 
+                  </div>
+
+
             </div>
- 
-  
-      
-<!--/.fluid-container--> 
+
+
+
+<!--/.fluid-container-->
  </form>

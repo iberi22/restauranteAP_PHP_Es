@@ -152,7 +152,7 @@
                                     <p class="white">'.$result->MEALS.'</p>
                                     </div>
                                     <div id="description">
-                                    <div style="color:black; background-color:#fff;border:1px dashed black;margin-top:10px; padding:5px;" class="price white">&#8369 '.$result->PRICE.'</div>
+                                    <div style="color:black; background-color:#fff;border:1px dashed black;margin-top:10px; padding:5px;" class="price white">&#36; '.$result->PRICE.'</div>
                                     <input type="hidden" name="mealid" value="'.$result->MEALID.'"/>
                                     <input type="hidden" name="meals" value="'.$result->MEALS.'"/>
                                     <input type="hidden" name="price" value="'.number_format($result->PRICE,2).'"/>

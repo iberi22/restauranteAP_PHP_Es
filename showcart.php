@@ -38,10 +38,10 @@
  <?php check_message(); ?>
 				<table id="table" class="table table-responsive">
 					<th>Meal</th>
-					<th width="100">Price</th>
+					<th width="100">Precio</th>
 					<th width="100">Qty</th>
 					<th width="100">Sub-total</th>
-					<th width="100">Action</th>
+					<th width="100">Acciones</th>
 					 <?php
 			$cart = 0;
 			$subtotal = 0;
@@ -68,7 +68,7 @@
               echo  '<tfoot>
 					<tr>
 						<td colspan="3" ><p class="stot">Total</p></td>
-						<td> &#8369 <span id="sum" class="stot">'. $subtotal.'</span></td>
+						<td> &#36; <span id="sum" class="stot">'. $subtotal.'</span></td>
 						<td>
 					</tr>
 				</tfoot>';

@@ -18,7 +18,7 @@
 }
  .scrollorder {
    /*width: auto;*/
-    height:450px;
+    /* height:450px; */
     /*border: thin solid black;*/
     overflow-x: hidden;
     /*overflow-y: hidden;*/
@@ -56,7 +56,7 @@ input[type="checkbox"]{
                                     <th>Orden No.</th>
                                     <th>Mesa No.</th>
                                     <th>Mesar@</th>
-                                    <th>Status</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,7 +93,7 @@ input[type="checkbox"]{
     			<div   style="font-size: 24px;font-weight: bold;margin-top: 10px;">
     				Order Details
     				<small><?php echo isset($_GET['tableno']) ? " for Table Number: ". $_GET['tableno'] : "" ?> <?php echo isset($_GET['rem']) ? "| ". $_GET['rem'] : "" ?></small>
-                    <span><?php echo isset($_GET['orderno']) ?  '<a href="addmeal.php?view=addmeal&orderno='.$_GET['orderno'].'&tableno='.$_GET['tableno'].'&rem='.$remarks.'" data-toggle="lightbox" class="btn btn-s btn-primary " data-title="<b>Add Meal</b>"><i class="fa fa-plus-circle"> Add Meal</i></a>' : ''; ?></span>
+                    <span><?php echo isset($_GET['orderno']) ?  '<a href="addmeal.php?view=addmeal&orderno='.$_GET['orderno'].'&tableno='.$_GET['tableno'].'&rem='.$remarks.'" data-toggle="lightbox" class="btn btn-s btn-primary " data-title="<b>Añadir Plato</b>"><i class="fa fa-plus-circle"> Añadir Plato</i></a>' : ''; ?></span>
     				<p style="text-align: right;font-size: 20px;">Order Number:<b style="text-decoration: underline;"> <?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?></b>
     					<input type="hidden" name="ORDERNO" id="ORDERNO"   value="<?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?>">
                         <input type="hidden" name="tableno" id="tableno"   value="<?php echo isset($_GET['tableno']) ?  $_GET['tableno'] : "NONE" ?>">
@@ -106,10 +106,10 @@ input[type="checkbox"]{
     				<thead>
     					<tr style="font-size: 15px;">
     					    <th>Meal</th>
-							<th width="60">Price</th>
+							<th width="60">Precio</th>
 							<th width="50" style="text-align: center;">Qty</th>
 							<th width="90">Amount</th>
-							<th width="30">Action</th>
+							<th width="30">Acciones</th>
     					</tr>
     				</thead>
     				<tbody>
@@ -126,7 +126,7 @@ input[type="checkbox"]{
 								foreach ($cur as $result) {
 						  		echo '<tr>';
 						  		echo '<td style="font-size:15px;">'.$result->DESCRIPTION.'</td>';
-						  		echo '<td style="font-size:15px;">&#8369; <input type="hidden" id="'.$result->ORDERID.'orderprice" value="'.$result->PRICE.'" >'.$result->PRICE.'</td>';
+						  		echo '<td style="font-size:15px;">&#36;; <input type="hidden" id="'.$result->ORDERID.'orderprice" value="'.$result->PRICE.'" >'.$result->PRICE.'</td>';
 						  		echo '<td style="font-size:15px;"><input type="number" min="1" class="orderqty" data-id="'.$result->ORDERID.'" id="'.$result->ORDERID.'orderqty" value="'.$result->QUANTITY.'" style="width:50px"></td>';
 						  		echo '<td style="text-align:center;"><output style="font-size:15px;" id="Osubtot'.$result->ORDERID.'">'.$result->SUBTOTAL.'</output></td>';
 						  		// echo '<td></td>';
@@ -179,11 +179,11 @@ input[type="checkbox"]{
                         </tr>
     					<tr>
     						<th width="250">Tender Amount</th>
-    						<th><input type="text" class="form-control"  name="tenderamount" id="tenderamount"  placeholder="&#8369 0.00" autocomplete="off"> <span id="errortrap"></span></th>
+    						<th><input type="text" class="form-control"  name="tenderamount" id="tenderamount"  placeholder="&#36; 0.00" autocomplete="off"> <span id="errortrap"></span></th>
     					</tr>
     					<tr>
     						<th width="250">Change</th>
-    						<th><input class="form-control" type="" class="sukli" readonly="true" name="sukli" id="sukli" value="" placeholder="&#8369 0.00"></th>
+    						<th><input class="form-control" type="" class="sukli" readonly="true" name="sukli" id="sukli" value="" placeholder="&#36; 0.00"></th>
     					</tr>
     				</thead>
     			</table>

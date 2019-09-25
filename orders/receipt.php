@@ -80,7 +80,7 @@
                     <thead>
                         <tr>
                             <th>Meal</th>
-                            <th width="60">Price</th>
+                            <th width="60">Precio</th>
                             <th width="50">Qty</th>
                             <th width="100">Sub-total</th>
                         </tr>

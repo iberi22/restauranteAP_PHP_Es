@@ -43,7 +43,7 @@ switch ($action) {
 
 		// if ( $_POST['TABLENO'] == "" ) {
 		// 	$messageStats = false;
-		// 	message("All field is required!","error");
+		// 	message("Todo el campo es obligatorio!","error");
 		// 	redirect('index.php?view=add');
 		// }else{
 
@@ -52,7 +52,7 @@ switch ($action) {
 			$table->TABLENO	= $tableno;
 			$table->create();
 
-			message("New table number created successfully!", "success");
+			message("New table number creado con éxito!", "success");
 			redirect("index.php");
 
 		// }
@@ -67,7 +67,7 @@ switch ($action) {
 			$table->TABLENO	= $_POST['TABLENO'];
 			$table->update($_POST['TABLEID']);
 
-			message("Table number has been updated!", "success");
+			message("Table number Ha sido actualizado!", "success");
 			redirect("index.php");
 		}
 

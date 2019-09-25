@@ -1,23 +1,23 @@
-<?php  
+<?php
 require_once("../../include/initialize.php");
     if (!isset($_SESSION['USERID'])){
       redirect(web_root."index.php");
      }
 
- 
- $PROID =   $_GET['id']; 
+
+ $PROID =   $_GET['id'];
 $query = "SELECT * FROM `tblproduct` p  ,`tblcategory` c ,`tblpromopro` pr
             WHERE   p.`CATEGID`=c.`CATEGID` AND p.`PROID`=pr.`PROID` AND p.`PROID`=" . $PROID;
             $mydb->setQuery($query);
             $cur = $mydb->loadResultList();
 
 
-  foreach ($cur as $result) { 
-   
+  foreach ($cur as $result) {
+
 ?>
-     
+
    <form   method="POST" action="controller.php?action=discount">
-        
+
         <div class="row">
 
             <div class="col-md-6">
@@ -25,16 +25,16 @@ $query = "SELECT * FROM `tblproduct` p  ,`tblcategory` c ,`tblpromopro` pr
                 <div class="col-m-12">
                     <div class="col-md-8 responsive">
                           <img width="250" class="img-portfolio " height="200"  src="<?php echo web_root . 'admin/products/'.  $result->IMAGES;?>" alt="">
-               
+
                     </div>
                     </div>
-                
-            </div>
-            
-      
+
             </div>
 
-     
+
+            </div>
+
+
             <div class="col-md-6">
               <input type="hidden" name="PROPRICE" value="<?php  echo $result->PROPRICE; ?>">
               <input type="hidden" id="PROQTY" name="PROQTY" value="<?php  echo $result->PROQTY; ?>">
@@ -46,12 +46,12 @@ $query = "SELECT * FROM `tblproduct` p  ,`tblcategory` c ,`tblpromopro` pr
                 <ul>
                     <li>Model - <?php echo $result->PROMODEL; ?></li>
                     <li>Type - <?php echo $result->PRODESC; ?></li>
-                    <li>Price - &#8369 <?php echo $result->PROPRICE; ?></li>
-                    <li>Discount - <?php echo $result->PRODISCOUNT; ?> % </li> 
-                    <li>Discounted Price - &#8369 <?php echo $result->PRODISPRICE; ?> </li> 
+                    <li>Precio - &#36; <?php echo $result->PROPRICE; ?></li>
+                    <li>Discount - <?php echo $result->PRODISCOUNT; ?> % </li>
+                    <li>Discounted Price - &#36; <?php echo $result->PRODISPRICE; ?> </li>
                 </ul>
 
-                
+
 
                  <!-- <button  type="submit"  class="btn btn-primary btn-sm"  name="btnorder">Order Now!</button> -->
             </div>
@@ -60,17 +60,17 @@ $query = "SELECT * FROM `tblproduct` p  ,`tblcategory` c ,`tblpromopro` pr
         <div class="col-md-12">
         <h3 class="page-header">Set Discount</h3>
         <div class="col-md-6">
- 
+
              <div class="form-group">
                 <label>Discount:</label>
 
-                
+
                 <div class="input-group">
 
                 <input type="hidden" class="form-control " name="PROPRICE" id="PROPRICE" value=" <?php echo $result->PROPRICE; ?>">
                 <input type="hidden" class="form-control " name="PROID" id="PROID" value=" <?php echo $result->PROID; ?>">
 
-              
+
                   <input type="input" class="form-control disper" name="PRODISCOUNT" id="PRODISCOUNT" placeHolder="0">
 
                   <div class="input-group-addon">
@@ -80,35 +80,34 @@ $query = "SELECT * FROM `tblproduct` p  ,`tblcategory` c ,`tblpromopro` pr
                 <!-- /.input group -->
               </div>
 
-             
+
         </div>
           <div class="col-md-6">
              <div class="form-group">
                 <label>Discounted Price:</label>
 
-               
+
                 <div class="input-group">
                   <div class="input-group-addon">
-                    <i> &#8369 </i>
+                    <i> &#36; </i>
                   </div>
                   <input type="text"  class="form-control" name="PRODISPRICE" id="PRODISPRICE" placeHolder="0.0" readonly="true">
                 </div>
                 <!-- /.input group -->
               </div>
-               
+
           </div>
          <div class="col-md-10">
-             <div class="form-group">  
-                  <input type="submit"  class="btn btn-sm btn-primary " name="submit"  value="Submit" > 
+             <div class="form-group">
+                  <input type="submit"  class="btn btn-sm btn-primary " name="submit"  value="Submit" >
               </div>
-               
+
           </div>
-              
+
         </div>
          </div>
-<?php } ?>       
-       
+<?php } ?>
+
         <!-- /.row -->
 </form>
 
- 

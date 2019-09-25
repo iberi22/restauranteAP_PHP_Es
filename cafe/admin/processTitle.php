@@ -5,17 +5,17 @@ require_once ("../include/initialize.php");
      }
 
 $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
- 
+
 switch ($action) {
 	case 'add' :
-	
+
 	doInsert();
 	break;
 
- 
+
 	}
 
-   
+
 function doInsert(){
 	if (isset($_POST['save'])) {
 		# code...
@@ -24,11 +24,11 @@ function doInsert(){
 		$res = mysql_query($query) or die(mysql_error());
 		if (isset($res)) {
 			# code...
-			message ("Title has been updated.","success");
+			message ("Title Ha sido actualizado.","success");
 			redirect('index.php');
 		}
 	}
- 	
+
 }
 
 ?>

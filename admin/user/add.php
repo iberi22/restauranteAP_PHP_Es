@@ -45,12 +45,12 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "U_USERNAME">Username:</label>
+                      "U_USERNAME">Nombre de usuario:</label>
 
                       <div class="col-md-8">
                         <input name="deptid" type="hidden" value="">
                          <input class="form-control input-lg" id="U_USERNAME" name="U_USERNAME" placeholder=
-                            "Account Username" type="text" value="">
+                            "Cuenta Nombre de usuario" type="text" value="">
                       </div>
                     </div>
                   </div>
@@ -58,24 +58,24 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "U_PASS">Password:</label>
+                      "U_PASS">Contraseña:</label>
 
                       <div class="col-md-8">
                         <input name="deptid" type="hidden" minlength="2" value="">
-                         <input class="form-control input-lg" id="U_PASS" min="3" name="U_PASS" placeholder="Account Password" type="Password" value="" required>
+                         <input class="form-control input-lg" id="U_PASS" min="3" name="U_PASS" placeholder="Contraseña de la Cuenta" type="Password" value="" required>
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "U_ROLE">Role:</label>
+                      "U_ROLE">Rol:</label>
 
                       <div class="col-md-8">
                        <select class="form-control input-lg" name="U_ROLE" id="U_ROLE">
-                          <option value="Administrator"  >Administrator</option>
-                          <option value="Cashier"  >Cashier</option>
-                          <option value="Waiter">Waiter</option>
+                          <option value="Administrator"  >Administrador</option>
+                          <option value="Cashier"  >Cajero</option>
+                          <option value="Waiter">Mesero</option>
                         </select>
                       </div>
                     </div>
@@ -89,7 +89,7 @@
                       "idno"></label>
 
                       <div class="col-md-8">
-                       <button style="width: 100%;" class="btn btn-primary btn-lg" name="save" type="submit" ><span class="fa fa-save fw-fa"></span>  Save</button>
+                       <button style="width: 100%;" class="btn btn-primary btn-lg" name="save" type="submit" ><span class="fa fa-save fw-fa"></span>  Guardar</button>
                           <!-- <a href="index.php" class="btn btn-info"><span class="fa fa-arrow-circle-left fw-fa"></span></span>&nbsp;<strong>List of Users</strong></a> -->
                        </div>
                     </div>

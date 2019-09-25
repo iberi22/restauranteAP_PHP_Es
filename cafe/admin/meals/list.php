@@ -8,7 +8,7 @@
 
 		<div class="row">
        	 <div class="col-lg-12">
-            <h1 class="page-header">List of Meals  <a href="index.php?view=add" class="btn btn-primary btn-s  ">  <i class="fa fa-plus-circle fw-fa"></i> Add Meal</a>  </h1>
+            <h1 class="page-header">List of Meals  <a href="index.php?view=add" class="btn btn-primary btn-s  ">  <i class="fa fa-plus-circle fw-fa"></i> Añadir Plato</a>  </h1>
        		</div>
         	<!-- /.col-lg-12 -->
    		 </div>
@@ -18,11 +18,11 @@
 
 				  <thead style="font-size: 18px;">
 				  	<tr>
-				  		<th style="text-align: center;">Photo</th>
-				  		<th>Meal Description</th>
-				  		<th>Categories</th>
-				  		<th>Price</th>
-				  		<th style="text-align: center;">Action</th>
+				  		<th style="text-align: center;">Foto</th>
+				  		<th>Descripcion del Plato</th>
+				  		<th>Categoria</th>
+				  		<th>Precio</th>
+				  		<th style="text-align: center;">Acciones</th>
 				  	</tr>
 				  </thead>
 
@@ -38,12 +38,12 @@
 				  		// echo '<td width="3%" align="center"></td>';
 				    	echo '<td width="100px">
 							<a class="MEALID" href="#" data-target="#menuModal"  data-toggle="modal"  data-id="'.$result->MEALID.'">
-							<img  title="Change Photo" width="100px" height="40px" src="'.web_root.'admin/meals/'.$result->MEALPHOTO . '">
+							<img  title="Change Photo" width="100px" height="40px" src="admin/meals/'.$result->MEALPHOTO . '">
 							</a></td>';
 				  		echo '<td style="font-size:15px;">'.$result->MEALS.'</a></td>';
 
 				  		echo '<td style="font-size:15px; width:100px">'. $result->CATEGORY.'</td>';
-				  		echo '<td style="font-size:15px;" width="100px"> &#8369 '.  number_format($result->PRICE,2).'</td>';
+				  		echo '<td style="font-size:15px;" width="100px"> &#36; '.  number_format($result->PRICE,2).'</td>';
 
 				  	 	echo '<td align="center" width="230px"> <a title="View Info" href="index.php?view=view&id='.$result->MEALID.'" class="btn btn-info btn-s  ">  <span class="fa  fa-info fw-fa "> View</a>
 				  	 	     <a title="Edit" href="index.php?view=edit&id='.$result->MEALID.'" class="btn btn-primary btn-s  ">  <span class="fa fa-pencil fw-fa"> Edit</a>
@@ -67,7 +67,7 @@
                                     <button class="close" data-dismiss="modal" type=
                                     "button">x</button>
 
-                                    <h4 class="modal-title" id="myModalLabel">Image.</h4>
+                                    <h4 class="modal-title" id="myModalLabel">Imagen.</h4>
                                 </div>
 
                                 <form action="admin/meals/controller.php?action=photos" enctype="multipart/form-data" method=
@@ -94,7 +94,7 @@
                                     <div class="modal-footer">
                                         <button class="btn btn-default" data-dismiss="modal" type=
                                         "button">Close</button> <button class="btn btn-primary"
-                                        name="savephoto" type="submit">Upload Photo</button>
+                                        name="savephoto" type="submit">Subir foto</button>
                                     </div>
                                 </form>
                             </div><!-- /.modal-content

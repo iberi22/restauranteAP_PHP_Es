@@ -138,7 +138,7 @@
 <?php } ?>
 <?php if ($_SESSION['ADMIN_ROLE']=='Administrator'  || $_SESSION['ADMIN_ROLE']=='Cashier') { ?>
                     <li class="<?php echo (currentpage() == 'meals') ? "active" : false;?>">
-                        <a href="../../admin/meals/"><i class="fa fa-cutlery"></i> Comidas</a>
+                        <a href="../../admin/meals/"><i class="fa fa-cutlery"></i> Platos</a>
                     </li>
                     <li class="<?php echo (currentpage() == 'category') ? "active" : false;?>">
                         <a href="../../admin/category/"><i class="fa fa-align-left"></i> Categorias</a>

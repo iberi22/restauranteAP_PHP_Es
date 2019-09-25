@@ -66,26 +66,26 @@
                 $viewTitle = mysql_fetch_assoc($res);
                 echo $viewTitle['Title'];
             ?></title></div>
-        <div style="text-align: center;">Customer Receipt</div>
+        <div style="text-align: center;">Recibo del cliente</div>
         <div style="text-align: center;font-size: 13px; margin-bottom: 10px;"><?php echo $remarks; ?></div>
         <table class="tables" style="border: 0; width: 550px;">
             <tr>
-                <td>Order No.: <?php echo $orderno; ?></td>
-                <td>Printed Date: <?php echo $printeddate; ?></td>
+                <td>Orden No.: <?php echo $orderno; ?></td>
+                <td>Fecha de Impresion: <?php echo $printeddate; ?></td>
             </tr>
             <tr>
-                <td>Customer No.: <?php echo $customer; ?></td>
-                <td>Table No.: <?php echo $tableno; ?></td>
+                <td>Cliente No.: <?php echo $customer; ?></td>
+                <td>Mesa    No.: <?php echo $tableno; ?></td>
             </tr>
             <tr>
-                <td>Cashier: <?php echo $username; ?></td>
+                <td>Cagero: <?php echo $username; ?></td>
             </tr>
         </table>
        <table id="table" class="table" style="font-size: 6px; border:0; padding: 0; width: 550px;" >
                     <thead>
                         <tr>
-                            <th>Meal</th>
-                            <th width="60">Price</th>
+                            <th>Plato</th>
+                            <th width="60">Precio</th>
                             <th width="50">Qty</th>
                             <th width="100">Sub-total</th>
                         </tr>
@@ -136,7 +136,7 @@
                             <th  width="100"><?php echo number_format($total,2); ?></th>
                         </tr>
                         <tr>
-                            <th colspan="3" style="text-align:right;">Tender Amount</th>
+                            <th colspan="3" style="text-align:right;">Importe de la oferta</th>
                             <th  width="100"><?php echo number_format($res->TENDEREDAMOUNT,2); ?></th>
                         </tr>
                         <tr>

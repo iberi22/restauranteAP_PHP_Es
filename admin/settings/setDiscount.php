@@ -46,9 +46,9 @@ $query = "SELECT * FROM `tblproduct` p  ,`tblcategory` c ,`tblpromopro` pr
                 <ul>
                     <li>Model - <?php echo $result->PROMODEL; ?></li>
                     <li>Type - <?php echo $result->PRODESC; ?></li>
-                    <li>Price - &#8369 <?php echo $result->PROPRICE; ?></li>
+                    <li>Precio - &#36; <?php echo $result->PROPRICE; ?></li>
                     <li>Discount - <?php echo $result->PRODISCOUNT; ?> % </li>
-                    <li>Discounted Price - &#8369 <?php echo $result->PRODISPRICE; ?> </li>
+                    <li>Discounted Precio - &#36; <?php echo $result->PRODISPRICE; ?> </li>
                 </ul>
 
 
@@ -84,12 +84,12 @@ $query = "SELECT * FROM `tblproduct` p  ,`tblcategory` c ,`tblpromopro` pr
         </div>
           <div class="col-md-6">
              <div class="form-group">
-                <label>Discounted Price:</label>
+                <label>Discounted Precio:</label>
 
 
                 <div class="input-group">
                   <div class="input-group-addon">
-                    <i> &#8369 </i>
+                    <i> &#36; </i>
                   </div>
                   <input type="text"  class="form-control" name="PRODISPRICE" id="PRODISPRICE" placeHolder="0.0" readonly="true">
                 </div>

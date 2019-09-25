@@ -48,7 +48,7 @@
 </head>
 <?php
 
-date_default_timezone_set('Asia/Manila');
+date_default_timezone_set('America/Santiago');
 
 ?>
 
@@ -81,24 +81,24 @@ date_default_timezone_set('Asia/Manila');
         <div style="text-align: center;font-size: 8px;">Kabankalan City, Negros Occidental</div>
         <table>
             <tr>
-                <td colspan="3" style="padding-top: 5px;padding-bottom: 5px; font-size: 8px;">TIN No.: 000-123-456-789</td>
+                <td colspan="3" style="padding-top: 5px;padding-bottom: 5px; font-size: 8px;">NIT No.: 000-123-456-789</td>
             </tr>
         </table>
 <!--         <div style="text-align: center;font-size: 8px; margin-bottom: 10px;"><?php echo $remarks; ?></div> -->
     <table  class="tables">
         <tr style="border-bottom: .5px solid; font-size: 8px;margin-bottom: 5px;">
-            <td colspan="3" align="center" style="padding-bottom: 3px;">Table No: <?php echo $tableno; ?> | Order No.: <?php echo $orderno?></td>
+            <td colspan="3" align="center" style="padding-bottom: 3px;">Mesa No: <?php echo $tableno; ?> | Orden No.: <?php echo $orderno?></td>
         </tr>
         <tr style="margin-bottom:5px;margin-top:5px;">
         <?php
-                        $total = 0;
-                        $tableno = 0;
-                        $vat=0;
-                        $vatable = 0;
-                        $regbill = 0;
-                        $waiter="FULLNAME";
-                        $senior=0;
-                        $totdiscount=0;
+                        $total       = 0;
+                        $tableno     = 0;
+                        $vat         = 0;
+                        $vatable     = 0;
+                        $regbill     = 0;
+                        $waiter      = "FULLNAME";
+                        $senior      = 0;
+                        $totdiscount = 0;
                             if (isset($_GET['orderno'])) {
                                 # code...
 
@@ -153,18 +153,18 @@ date_default_timezone_set('Asia/Manila');
                             ?>
                         <!-- summary -->
                         <tr>
-                            <td colspan="2" style="padding-top: 5px;padding-bottom: 2px;">Gross Charge: </td>
+                            <td colspan="2" style="padding-top: 5px;padding-bottom: 2px;">Cargo bruto: </td>
                              <td  align="right" style="border-bottom: .5px solid;" ><?php echo number_format($res->TOTALPAYMENT,2); ?></td>
                         </tr>
                          <tr>
-                            <td style="padding-top: 5px;padding-bottom: 5px;" colspan="2">Senior Discount: </td>
+                            <td style="padding-top: 5px;padding-bottom: 5px;" colspan="2">Descuento de mayores: </td>
                             <td  align="right"><?php echo number_format($senior,2); ?></td>
                         </tr>
                         <tr>
                             <td>SeniorID:</td><td><?php echo ($res->SENIORID!="")? $res->SENIORID : "None";?></td>
                         </tr>
                          <tr>
-                            <td style="padding-top: 5px;padding-bottom: 5px;" colspan="2">Total Bill: </td>
+                            <td style="padding-top: 5px;padding-bottom: 5px;" colspan="2">Cuenta total: </td>
                             <td  align="right"><?php echo number_format($res->OVERALLTOTAL,2); ?></td>
                         </tr>
                         <tr>
@@ -193,14 +193,14 @@ date_default_timezone_set('Asia/Manila');
                             <td></td>
                         </tr>
                         <tr>
-                            <td colspan="2" style="padding-top: 5px;padding-bottom: 5px;">Tender Amount: </td>
+                            <td colspan="2" style="padding-top: 5px;padding-bottom: 5px;">Importe de la oferta: </td>
                             <td  align="right"><?php echo number_format($res->TENDEREDAMOUNT,2); ?></td>
                         </tr>
                         <tr>
                             <td></td>
                         </tr>
                         <tr>
-                            <td colspan="2" style="padding-top: 2px;padding-bottom: 5px;">Change: </td>
+                            <td colspan="2" style="padding-top: 2px;padding-bottom: 5px;">Cambio: </td>
                             <td  align="right"><?php echo number_format($res->PCHANGE,2); ?></td>
                         </tr>
                         <tr>

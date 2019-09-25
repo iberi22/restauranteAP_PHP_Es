@@ -52,11 +52,11 @@ function doInsert(){
 		// echo  $_POST['tenderamount'];
 		// echo  $_POST['sukli'];
 		// echo  $_SESSION['ADMIN_FULLNAME'];
-		$remarks = isset($_POST['REMARKS'])	 ? $_POST['REMARKS'] : '';
-		$tableno = isset($_POST['tableno']) ? $_POST['tableno'] : '';
-		$subtot = $_POST['totalamount'];
-		@$senioraddno = $_POST['SENIORADDNO'];
-		@$seniorid = $_POST['SENIORID'];
+		$remarks        = isset($_POST['REMARKS'])	 ? $_POST['REMARKS'] : '';
+		$tableno        = isset($_POST['tableno']) ? $_POST['tableno'] : '';
+		$subtot         = $_POST['totalamount'];
+		@$senioraddno   = $_POST['SENIORADDNO'];
+		@$seniorid      = $_POST['SENIORID'];
 		$totsenioraddno = 0;
 
 		if (isset($_POST['SENIORCITIZEN'])) {
@@ -176,10 +176,10 @@ function doDelete(){
 
 
  function addproduct(){
-		$id = $_GET['mealid'];
-		$meals = $_GET['meals'];
-		$price = $_GET['price'];
-		$qty = $_GET['qty'];
+		$id       = $_GET['mealid'];
+		$meals    = $_GET['meals'];
+		$price    = $_GET['price'];
+		$qty      = $_GET['qty'];
 		$subtotal = $_GET['price'] * $_GET['qty'];
 
 		admin_addtocart($id,$meals,$price,$qty,$subtotal);
@@ -193,10 +193,10 @@ function doDelete(){
 
 	unset($_SESSION['admin_gcCart']);
 
-		message("Cart is empty.","success");
+		message("El carrito está vacío.","success");
 	}else{
 
-		message("1 Item removed in the cart.","success");
+		message("1 Artículo eliminado en el carrito.","success");
 	}
 		redirect("index.php?view=addorder");
 

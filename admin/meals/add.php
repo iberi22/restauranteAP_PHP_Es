@@ -17,9 +17,9 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
 
                  <div class="form-group">
                     <div class="col-md-8">
-                      <label style="font-size: 20px;" class="col-md-4 control-label" for="MEALS">Comida:</label>
+                      <label style="font-size: 20px;" class="col-md-4 control-label" for="MEALS">Plato:</label>
                       <div class="col-md-8">
-                        <input class="form-control input-lg" id="MEALS" name="MEALS" placeholder="Input Meal Description" type="text" value="" required>
+                        <input class="form-control input-lg" id="MEALS" name="MEALS" placeholder="Descripción del Plato de entrada" type="text" value="" required>
                       </div>
                     </div>
                   </div>
@@ -48,11 +48,11 @@ if(!$_SESSION['ADMIN_ROLE']=='Administrator'){
 
                   <div class="form-group">
                     <div class="col-md-8">
-                       <label style="font-size: 20px;" class="col-md-4 control-label" for="PRICE">Price:</label>
+                       <label style="font-size: 20px;" class="col-md-4 control-label" for="PRICE">Precio:</label>
 
                       <div class="col-md-8">
                          <input class="form-control input-lg" id="PRICE"  step="any" name="PRICE" placeholder=
-                            "&#8369 Price " type="text" value="" required>
+                            "&#36; Precio " type="text" value="" required>
                       </div>
                     </div>
                   </div>

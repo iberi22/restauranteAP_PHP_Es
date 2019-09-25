@@ -32,7 +32,7 @@ switch ($action) {
 
 		if ($_POST['U_NAME'] == "" OR $_POST['U_USERNAME'] == "" OR $_POST['U_PASS'] == "") {
 			$messageStats = false;
-			message("All field is required!","error");
+			message("Todo el campo es obligatorio!","error");
 			redirect('index.php?view=add');
 		}else{
 			$user = New User();
@@ -46,7 +46,7 @@ switch ($action) {
 						$autonum = New Autonumber();
 						$autonum->auto_update('userid');
 
-			message("The account [". $_POST['U_NAME'] ."] created successfully!", "success");
+			message("The account [". $_POST['U_NAME'] ."] creado con éxito!", "success");
 			redirect("index.php");
 
 		}
@@ -64,7 +64,7 @@ switch ($action) {
 			$user->ROLE				= $_POST['U_ROLE'];
 			$user->update($_POST['USERID']);
 
-			  message("[". $_POST['U_NAME'] ."] has been updated!", "success");
+			  message("[". $_POST['U_NAME'] ."] Ha sido actualizado!", "success");
 			redirect("index.php");
 		}
 	}

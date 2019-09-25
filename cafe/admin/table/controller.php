@@ -12,7 +12,7 @@ switch ($action) {
 	case 'add' :
 	doInsert();
 	break;
-	
+
 	case 'edit' :
 	doEdit();
 	break;
@@ -20,14 +20,14 @@ switch ($action) {
 	case 'reserve' :
 	doReserve();
 	break;
-	
+
 	case 'delete' :
 	doDelete();
 	break;
 
- 
+
 	}
-   
+
 	function doInsert(){
 		global $mydb;
 		$tableno = 0;
@@ -43,18 +43,18 @@ switch ($action) {
 
 		// if ( $_POST['TABLENO'] == "" ) {
 		// 	$messageStats = false;
-		// 	message("All field is required!","error");
+		// 	message("Todo el campo es obligatorio!","error");
 		// 	redirect('index.php?view=add');
-		// }else{	
+		// }else{
 
 
 			$table = New Tables();
 			$table->TABLENO	= $tableno;
 			$table->create();
 
-			message("New table number created successfully!", "success");
+			message("New table number creado con éxito!", "success");
 			redirect("index.php");
-			
+
 		// }
 		// }
 
@@ -67,24 +67,24 @@ switch ($action) {
 			$table->TABLENO	= $_POST['TABLENO'];
 			$table->update($_POST['TABLEID']);
 
-			message("Table number has been updated!", "success");
+			message("Table number Ha sido actualizado!", "success");
 			redirect("index.php");
 		}
 
 	}
-	function doReserve(){ 
+	function doReserve(){
 
 		// date_default_timezone_set("ASIA/MANILA");
 		if (isset($_POST['save'])) {
 			# code...
-			$table = New Tables(); 
+			$table = New Tables();
 			$table->STATUS	= 'Reserved';
 			$table->RESERVEDTIME = $_POST['RESERVEDTIME'];
 			$table->CUSTOMER = $_POST['CUSTOMER'];
-			$table->update($_POST['TABLEID']); 
+			$table->update($_POST['TABLEID']);
 			message("Table number has been reserved!", "success");
 		}else{
-			$table = New Tables(); 
+			$table = New Tables();
 			$table->STATUS	= 'Available';
 			$table->RESERVEDTIME = "";
 			$table->update($_GET['id']);
@@ -92,9 +92,9 @@ switch ($action) {
 			message("Table number has been Available!", "success");
 
 		}
- 			
 
-			
+
+
 			// 	$table = New Tables();
 			// // $cur = $table->single_table($_GET['id']);
 			// if ($cur->STATUS=='Reserved') {
@@ -108,11 +108,11 @@ switch ($action) {
 			// }else{
 			// 	$table->STATUS	= 'Reserved';
 			// 	$table->RESERVEDTIME = date('h:i:s A');
-			// 	$table->update($_GET['id']); 
+			// 	$table->update($_GET['id']);
 			// 	message("Table number has been reserved!", "success");
 			// }
- 
-		  redirect("index.php"); 
+
+		  redirect("index.php");
 
 	}
 
@@ -124,7 +124,7 @@ switch ($action) {
 
 			$id = $_GET['id'];
 
-			$table = New Tables(); 
+			$table = New Tables();
 			$table->delete($id);
 
 			message("Table number Deleted!","info");
@@ -142,6 +142,6 @@ switch ($action) {
 		// 	redirect('index.php');
 		// }
 		// }
-		
+
 	}
 ?>

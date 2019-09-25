@@ -122,7 +122,7 @@ header("Expires: 0");
 
                                 echo '<tr  data-tt-id="2" data-tt-parent-id="1'.$result->ORDERNO.'" style="background-color:#eee;">';
                                 echo '<td colspan="2">Description</td>';
-                                echo '<td>Price</td>';
+                                echo '<td>Precio</td>';
                                 echo '<td>QUANTITY</td>';
                                 echo '<td>Subtotal</td>';
                                 echo '</tr>';
