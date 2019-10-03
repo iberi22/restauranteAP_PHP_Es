@@ -1,7 +1,7 @@
 <?php
 defined('server') ? null : define("server", "localhost");
 defined('user') ? null : define ("user", "root") ;
-defined('pass') ? null : define("pass","2012116664");
+defined('pass') ? null : define("pass","serverchkdsk");
 defined('database_name') ? null : define("database_name", "dbplazacafe") ;
 
 $this_file = str_replace('\\', '/', __File__) ;
