@@ -6,12 +6,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>
-    <?php
-      $sql = "SELECT * FROM `tbltitle` WHERE TItleID=1";
-                 $mydb->setQuery($sql);
-                $viewTitle = $mydb->loadSingleResult();
-                echo $viewTitle->Title;
-    ?>
+   Gusto y Sabor Restaurante.
 </title>
 
  <!-- Bootstrap Core CSS -->
@@ -98,7 +93,7 @@
                 if ($_SESSION['ADMIN_ROLE']=='Administrator') {
                   # code...
              ?>
-                <a class="navbar-brand" href="../changetitle.php" style="font-size: 35px;" data-toggle="lightbox" data-title="Change Title"><?php
+                <a class="navbar-brand" href="../changetitle.php" style="font-size: 24px;" data-toggle="lightbox" data-title="Change Title"><?php
                 echo $viewTitle->Title;;
             ?> </a>
           <?php }else if($_SESSION['ADMIN_ROLE']=='Cashier'){ ?>

@@ -57,7 +57,7 @@
                       <label class="col-md-4 control-label" for="idno"></label>
                       <div class="col-md-8">
                          <button style="width: 100%; font-size: 20px;" class="btn btn-primary btn-s" name="save" type="submit" ><span class="fa fa-save fw-fa"></span> Save</button>
-                      <!-- <a href="index.php" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<strong>Back</strong></a> -->
+                      <a href="index.php" class="btn btn-info"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<strong>Back</strong></a>
 
                      </div>
                     </div>

@@ -226,8 +226,8 @@ require_once("../../include/initialize.php");
     $(document).ready(function() {
     $('#dash-table2').DataTable({
                 responsive: true ,
-                  "sort": false,
-                  "lengthChange" : false;
+                  "sort": false
+                //   "lengthChange" : false;
         });
 
     });

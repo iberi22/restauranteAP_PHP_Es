@@ -241,7 +241,7 @@ $(document).on("click", ".submit", function() {
 // validating the cart value on the cashier side
 setInterval(function() {
 	loadnotifcart();
-}, 3000);
+}, 30000);
 function loadnotifcart() {
 	$.ajax({
 		type: "POST",
@@ -258,7 +258,7 @@ function loadnotifcart() {
 // validating ordelist on the cashier side
 setInterval(function() {
 	autoloadpage();
-}, 3000);
+}, 30000);
 function autoloadpage() {
 	$.ajax({
 		type: "POST",
@@ -271,7 +271,7 @@ function autoloadpage() {
 }
 setInterval(function() {
 	loadnotif();
-}, 3000);
+}, 30000);
 function loadnotif() {
 	$.ajax({
 		type: "POST",
@@ -395,7 +395,7 @@ function OpenPopupCenter(pageURL, title, w, h) {
 //        $("#addnotif").html("meal has been added in the cart");
 //        setInterval(function(){
 //        $("#addnotif").hide();
-//        },3000);
+//        },30000);
 //     }
 
 //    });
@@ -416,7 +416,7 @@ function OpenPopupCenter(pageURL, title, w, h) {
 //        $("#addnotif").html("meal has been remove in the cart");
 //        setInterval(function(){
 //        $("#addnotif").hide();
-//       },3000);
+//       },30000);
 
 //     }
 

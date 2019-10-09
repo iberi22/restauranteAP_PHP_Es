@@ -14,7 +14,7 @@ if (isset($_SESSION['WAITER_USERID'])) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <meta name="description" content="Restaurant free app">
-        <meta name="keywords" content="restaurant,app,fre">
+        <meta name="keywords" content="restaurant,app,free">
         <meta name="author" content="iberi@gmail.com">
 
     <title>
@@ -25,24 +25,30 @@ if (isset($_SESSION['WAITER_USERID'])) {
 
 </head>
 <body>
-    <!-- <form class="form-4">
-        <h1>Login or Register</h1>
-        <p>
-            <label for="login">Username or email</label>
-            <input type="text" name="login" placeholder="Username or email" required>
-        </p>
-        <p>
-            <label for="password">Password</label>
-            <input type="password" name='password' placeholder="Password" required>
-        </p>
+    <div class="maindiv">
 
-        <p>
-            <input type="submit" name="submit" value="Continue">
-        </p>
-    </form>​ -->
+        <div class="sondiv">
+            <form  class="form-4" action="" method="POST" >
+                <h1>Inicio de Session</h1>
+                <p>
+                    <label for="login">Nombre de usuario</label>
+                    <input type="text" name="user_email" placeholder="Nombre de usuario" required>
+                </p>
+                <p>
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="user_pass" placeholder="Contraseña" required>
+                </p>
+
+                <p>
+                    <input type="submit" name="btnLogin"  value="Iniciar">
+                </p>
+            </form>​
+        </div>
+    </div>
 
 
-   <form class="form-1" action="" method="POST">
+
+   <!-- <form class="form-1" action="" method="POST">
         <p class="field">
             <input type="text" name="login" placeholder="Username or email">
             <i class="icon-user icon-large"></i>
@@ -54,7 +60,7 @@ if (isset($_SESSION['WAITER_USERID'])) {
         <p class="submit">
             <button type="submit" name="submit"><i class="icon-arrow-right icon-large"></i></button>
         </p>
-    </form>
+    </form> -->
 
 </body>
 </html>

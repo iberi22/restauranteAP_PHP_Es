@@ -3,17 +3,28 @@
 /* C:\PROYECTOS\Restaurant_and_coffee\admin\font-awesome\css\font-awesome.min.css */
 
 /* GLOBALS */
+.maindiv {
+	display: table;
+	width: 100%;
+	margin-top: 10%;
+}
+.sondiv {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	margin-top: 20%;
+}
 * {
 	box-sizing: border-box;
 }
-html {
-	position: absolute;
-	z-index: 1;
-	height: 100%;
+
+body {
 	width: 100%;
+	height: 100%;
 	overflow: hidden;
+	position: relative;
 }
-html:before {
+body:before {
 	content: "";
 	display: block;
 	position: absolute;
@@ -24,11 +35,11 @@ html:before {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	background: #fff url(../images/sandra-seitamaa-OFJGlG3sKik-unsplash.jpg)
+	background: #fff url(../images/juliana-kozoski-khVn94gnIwQ-unsplash-min.png)
 		center center fixed no-repeat;
 	background-size: cover;
-	-webkit-filter: blur(2px);
-	filter: blur(2px);
+	-webkit-filter: blur(1.2px);
+	filter: blur(1.2px);
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
 }
@@ -738,8 +749,8 @@ html:before {
 
 	/* Styles */
 	border: 1px solid #4e3043; /* Fallback */
-	border: 1px solid rgba(78, 48, 67, 0.8);
-	background: rgba(0, 0, 0, 0.15);
+	border: 1px solid #eeefef;
+	background: #edededb5;
 	border-radius: 2px;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2),
 		inset 0 1px 1px rgba(0, 0, 0, 0.1);

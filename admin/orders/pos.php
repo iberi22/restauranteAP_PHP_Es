@@ -32,6 +32,7 @@
 
 .form-control{
     width: 59%;
+    margin-bottom:20px;
 }
 
 input[type="checkbox"]{
@@ -190,9 +191,9 @@ input[type="checkbox"]{
     					</tr>
     				</thead>
     			</table>
-    			<div>
+    			<div style="margin-bottom: 20px;">
     				<button target="_blank" type="submit" name="save" class="btn btn-primary btn-lg fa fa-save" id="save"> Guardar e imprimir</button>
-                    <a target="_blank" href="tempreceipt.php?orderno=<?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?>&tableno=<?php echo isset($_GET['tableno']) ?  $_GET['tableno'] : "NONE" ?>" class="btn btn-default btn-lg fa fa-print"> <b>Imprimir para cocinar</b></a>
+                    <a style="margin-top: 10px;" target="_blank" href="tempreceipt.php?orderno=<?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?>&tableno=<?php echo isset($_GET['tableno']) ?  $_GET['tableno'] : "NONE" ?>" class="btn btn-default btn-lg fa fa-print"> <b>Imprimir para cocinar</b></a>
     			</div>
     		</div>
     		<!-- end summary -->

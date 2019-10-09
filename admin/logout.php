@@ -20,5 +20,5 @@ unset($_SESSION['ADMIN_USERNAME']);
 unset($_SESSION['ADMIN_ROLE']);
 // 4. Destroy the session
 // session_destroy();
-redirect("login.php?logout=1");
+redirect("../login.php?logout=1");
 ?>
