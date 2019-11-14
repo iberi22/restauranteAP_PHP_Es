@@ -22,25 +22,18 @@
         <!--<link rel="icon" href="favicon-1.ico" type="image/x-icon">-->
           <link href="../admin/css/ekko-lightbox.css" rel="stylesheet">
     </head>
-
     <body>
-
 <?php
     if (isset($_SESSION['gcCart'])) {
         # code...
-
         if (!empty($_SESSION['gcCart'])){
-
             $count_cart = count($_SESSION['gcCart']);
-
             for ($i=0; $i < $count_cart  ; $i++) {
                    @$cart_value  +=  $_SESSION['gcCart'][$i]['qty'];
             }
         }
        }
-
 ?>
-
 </style>
     <nav class="navbar navbar-default navbar-fixed-top"  role="navigation">
             <div class="container">
@@ -60,7 +53,6 @@
                 echo $viewTitle->Title;
                     ?> </a>
                     </div>
-
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav main-nav  clear navbar-right ">
@@ -77,11 +69,8 @@
                                 <style type="text/css">
                                     .dropdown-menu > li {
                                         width: 100px;
-
-
                                         }
                                         .dropdown-menu > li > a  {
-
                                             font-size :15px;
                                         }                                                           }
                                 </style>
@@ -92,21 +81,14 @@
                                 </ul>
                             </li> -->
                         </ul>
-
                     </div><!-- /.navbar-collapse -->
                 </div>
             </div><!-- /.container-fluid -->
         </nav>
-
-
         <?php
          require_once $content;
          ?>
-
-
-
         <!-- ============ Footer Section  ============= -->
-
      <!--    <footer class="sub_footer">
             <div class="container">
                 <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Plaza Cafe 2017, Theme by <a href="https://themewagon.com/">ThemeWagon</a></p></div>
@@ -116,10 +98,8 @@
             </div>
         </footer>
  -->
-
         <script type="text/javascript" src="../jquery/jquery.min.js"> </script>
         <script type="text/javascript" src="../js/bootstrap.min.js" ></script>
-
         <script src="../admin/js/jquery.dataTables.min.js"></script>
 <script src="../admin/js/dataTables.bootstrap.min.js"></script>
         <!-- <script type="text/javascript" src="../js/jquery-1.10.2.js"></script>      -->
@@ -128,25 +108,16 @@
         <script type="text/javascript" src="../js/janobe.js" ></script>
         <script src="../admin/js/ekko-lightbox.js"></script>
         <script src="../admin/js/lightboxfunction.js"></script>
-
-
     </body>
 </html>
-
 <script type="text/javascript">
-
-
 // for the event handler for the text quantity in the orderlist for the cashie side
         $(document).on("keyup",".orderqty", function(){
-
             var id = $(this).data("id");
             var inptqty = document.getElementById(id+"orderqty").value;
             var price =  document.getElementById(id+'orderprice').value;
             var subtot;
-
              // alert(price)
-
-
             $.ajax({
                 type:"POST",
                 url:  "controller.php?action=edit",
@@ -156,44 +127,29 @@
                     ORDERID: id,
                     QTY    : inptqty,
                     PRICE  : price
-
                 },
                 success: function(data) {
                   // alert(data);
-
                      subtot = parseFloat(price) * parseFloat(inptqty);
-
                       document.getElementById('Osubtot'+id).value  =    subtot;
-
                       var table = document.getElementById('table');
                       var items = table.getElementsByTagName('output');
-
                       var sum = 0;
                       for(var i=0; i<items.length; i++)
                           sum +=   parseFloat(items[i].value);
-
                       var output = document.getElementById('totamnt');
                       // output.innerHTML =  sum.toFixed(2);
                       output.value = sum.toFixed(2);
-
                       document.getElementById("totalamount").value = sum;
                 }
-
-
             });
-
-
         });
-
         $(document).on("change",".orderqty", function(){
-
             var id = $(this).data("id");
             var inptqty = document.getElementById(id+"orderqty").value;
             var price =  document.getElementById(id+'orderprice').value;
             var subtot;
-
            // alert(price)
-
             $.ajax({
                 type:"POST",
                 url:  "controller.php?action=edit",
@@ -201,34 +157,21 @@
                 data:{ORDERID:id,QTY:inptqty,PRICE:price},
                 success: function(data) {
                   // alert(data);
-
                      subtot = parseFloat(price) * parseFloat(inptqty);
-
                       document.getElementById('Osubtot'+id).value  =    subtot;
-
                       var table = document.getElementById('table');
                       var items = table.getElementsByTagName('output');
-
                       var sum = 0;
                       for(var i=0; i<items.length; i++)
                           sum +=   parseFloat(items[i].value);
-
                       var output = document.getElementById('totamnt');
                       // output.innerHTML =  sum.toFixed(2);
                       output.value = sum.toFixed(2);
-
                       document.getElementById("totalamount").value = sum;
                 }
-
-
             });
-
-
         });
-
-
 $(document).on("click", ".orderqty", function () {
   $(this).select();
-
 });
 </script>

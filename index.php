@@ -1,4 +1,6 @@
 <?php
+
+
 require_once("include/initialize.php");
  if (!isset($_SESSION['WAITER_USERID'])){
       redirect("login.php");

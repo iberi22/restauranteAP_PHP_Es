@@ -2,11 +2,11 @@
 
 <style type="text/css">
 	#wrapper{
-	 	height: 10%; 
+	 	height: 10%;
 	}
     #smain {
 		margin-top:  150px;
-		text-align: center;   
+		text-align: center;
 	}
 	#smain > a {
 	text-decoration: none;
@@ -36,8 +36,8 @@
 </style>
 <div id="wrapper">
 <div id="smain">
- <?php check_message(); ?> 
-<a href="index.php?view=menu&rem=Dine-In"><i class="fa fa-cutlery"></i><br>Dine In</a>   
-<a href="index.php?view=menu&rem=Take-Out"><i class="fa fa-truck icon-2x"></i><br>Take Out</a> 
+ <?php check_message(); ?>
+<a href="index.php?view=menu&rem=Dine-In"><i class="fa fa-cutlery"></i><br>Para Servir</a>
+<a href="index.php?view=menu&rem=Take-Out"><i class="fa fa-truck icon-2x"></i><br>Para llevar</a>
 </div>
 </div>

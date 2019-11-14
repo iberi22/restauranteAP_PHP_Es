@@ -1,46 +1,40 @@
-
 	<?php
 	 if (!isset($_SESSION['ADMIN_USERID'])){
       redirect("../admin/index.php");
      }
-
 		// check_message();
-
     ?>
  <style type="text/css">
  .scrolly {
-   /*width: auto;*/
-    height:268px;
-    /*border: thin solid black;*/
-    overflow-x: hidden;
+    /*width         : auto;*/
+    height          : 268px;
+    /*border        : thin solid black;*/
+    overflow-x      : hidden;
     background-color: #eee;
-    /*overflow-y: hidden;*/
+    /*overflow-y    : hidden;*/
 }
  .scrollorder {
-   /*width: auto;*/
-    /* height:450px; */
-    /*border: thin solid black;*/
-    overflow-x: hidden;
+    /*width     : auto;*/
+    /* height   : 450px; */
+    /*border    : thin solid black;*/
+    overflow-x  : hidden;
     /*overflow-y: hidden;*/
-    padding: 0px;
+    padding     : 0px;
 }
 .page-header{
-    font-size: 25px;
+    font-size  : 25px;
     font-weight: bold;
     margin-left: 0;
 }
-
 .form-control{
     width: 59%;
     margin-bottom:20px;
 }
-
 input[type="checkbox"]{
-    width: 30px;
-    height: 30px;
+    width      : 30px;
+    height     : 30px;
     margin-left: 80px;
 }
-
  </style>
 <form class="form" action="controller.php?action=add" method="POST" target="_blank">
 <!-- orders -->
@@ -63,13 +57,11 @@ input[type="checkbox"]{
                             </thead>
                             <tbody>
                                 <?php
-
                                    $remarks = isset($_GET['rem']) ? $_GET['rem'] : "" ;
                                     $query = "SELECT * FROM `tblorders` o , `tblusers` u
                                          WHERE  o.`USERID` = u.`USERID` AND STATUS='Pending' GROUP BY ORDERNO ORDER BY ORDERID ASC ";
                                     $mydb->setQuery($query);
                                     $cur = $mydb->loadResultList();
-
                                     foreach ($cur as $result) {
                                     echo '<tr>';
                                     echo '<td><a style="font-size:15px; font-weight:bold;" href="index.php?view=POS&orderno='.$result->ORDERNO.'&tableno='.$result->TABLENO.'&rem='.$result->REMARKS.'" >'.$result->ORDERNO.'</a></td>';
@@ -77,7 +69,6 @@ input[type="checkbox"]{
                                     echo '<td>'.$result->FULLNAME.'</td>';
                                     echo '<td>'.$result->REMARKS.'</td>';
                                     echo '</tr>';
-
                                     }
                                 ?>
                             </tbody>
@@ -126,7 +117,6 @@ input[type="checkbox"]{
 	           					 WHERE  o.`USERID` = u.`USERID` AND `STATUS`='Pending' AND `ORDERNO` ='".$orderno."'";
 						  		$mydb->setQuery($query);
 						  		$cur = $mydb->loadResultList();
-
 								foreach ($cur as $result) {
 						  		echo '<tr>';
 						  		echo '<td style="font-size:15px;">'.$result->DESCRIPTION.'</td>';
@@ -136,20 +126,15 @@ input[type="checkbox"]{
 						  		// echo '<td></td>';
                                 echo '<td style="text-align:center;"><a title="Cancel Order" class="btn btn-xs btn-danger" style="text-decoration:none;" href="controller.php?action=delete&id='.$result->ORDERID.'&rem='.$result->REMARKS.'"><i style="font-size:15px; padding:2px;" class="fa fa-trash-o"></i></a></td>';
 						  		echo '</tr>';
-
 						  		$total += $result->SUBTOTAL;
-
-
 						  		}
     						}
-
 				  		?>
 				  		<!-- <tr>
 				  			<td colspan="4"></td>
 				  		</tr> -->
     				</tbody>
     			</table>
-
     			</div>
     		<!-- <hr/> -->
     		<!-- end order details -->
@@ -157,7 +142,6 @@ input[type="checkbox"]{
     			<div style="font-size: 19px;font-weight: bold;margin-top:20px;margin-bottom: 3px">
     				Resumen
     			</div>
-
     			<table class="table table-bordered">
     				<thead>
     					<tr>
@@ -165,7 +149,7 @@ input[type="checkbox"]{
     						<th><input class="form-control" type="text" id="totamnt"  readonly="true" value="<?php echo number_format($total,2); ?>">
     						<input type="hidden" name="totalamount" id="totalamount"   value="<?php echo $total; ?>"></th>
     					</tr>
-                        <tr>
+                        <!-- <tr>
                             <tr>
                                 <td>
                                     <b style="font-size: 13px;">Persona de descuento(s)</b> <input type="checkbox" id="SENIORCITIZEN" name="SENIORCITIZEN" class="seniorcitizen" value="20">
@@ -174,7 +158,7 @@ input[type="checkbox"]{
                                     <input class="form-control" placeholder="Cuantas Personas?" type="number" id="SENIORADDNO" name="SENIORADDNO" style="width: 200px;" disabled="true">
                                      <input class="form-control" placeholder="Senior Id" type="text" id="SENIORID" name="SENIORID" style="width: 200px;margin-top: 5px" disabled="true">
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tr>
                         <tr>
                             <th width="250">Total</th>
@@ -183,7 +167,10 @@ input[type="checkbox"]{
                         </tr>
     					<tr>
     						<th width="250">Oferta Cantidad</th>
-    						<th><input type="text" class="form-control"  name="tenderamount" id="tenderamount"  placeholder="&#36; 0.00" autocomplete="off"> <span id="errortrap"></span></th>
+    						<th>
+                                <input type="text" class="form-control"  name="tenderamount" id="tenderamount"  placeholder="&#36; 0.00" autocomplete="off">
+                            <span id="errortrap"></span>
+                        </th>
     					</tr>
     					<tr>
     						<th width="250">Cambio</th>
@@ -200,7 +187,6 @@ input[type="checkbox"]{
      	</div>
     </div>
     </form>
-
   <script>
 function SearchTable() {
   // Declare variables
@@ -210,7 +196,6 @@ function SearchTable() {
   table  = document.getElementById("dashtable");
   tr     = table.getElementsByTagName("tr");
   td     = table.getElementsByTagName("td");
-
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[0];

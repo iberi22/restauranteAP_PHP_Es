@@ -16,7 +16,8 @@ class Database {
 	}
 
 	public function open_connection() {
-		$this->conn = mysqli_connect("localhost","root","serverchkdsk");
+
+		$this->conn = mysqli_connect("localhost","root","");
 		if(!$this->conn){
 			echo "Problem in database connection!sss Contact administrator!";
 			exit();

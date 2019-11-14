@@ -8,33 +8,25 @@ require_once("../../include/initialize.php");
 	    $remarks = $_GET['rem'];
 		$subtotal = 0;
 		$qty =0;
-
 			 $query = "SELECT * FROM `tblorders`
 	          		   WHERE `ORDERNO`= '".$orderno."' AND MEALID= '".$mealid."' AND STATUS='Pending'";
 				  	 $mydb->setQuery($query);
 				  	 $row = $mydb->executeQuery();
 				     $maxrow = $mydb->num_rows($row);
-
 				  	if ($maxrow > 0) {
 				  		# code...
 				  		$res = $mydb->loadSingleResult();
-
 				  		$qty = intval($res->QUANTITY) + 1;
 					  	$subtotal = $res->PRICE * $qty;
-
 				  		$order = new Order();
 						$order->QUANTITY 			= $qty;
 						$order->SUBTOTAL 			= $subtotal;
 						$order->pupdate($orderno,$mealid);
-
-
 				  	}else{
 				  		$query = "SELECT * FROM `tblmeals` WHERE MEALID='".$mealid."'";
 				  	    $mydb->setQuery($query);
 				  		$cur = $mydb->loadSingleResult();
-
 					  	$subtotal = $cur->PRICE * 1;
-
 						$order = new Order();
 						$order->DATEORDERED 		= date('Y-m-d H:i');
 						$order->ORDERNO 			= $orderno;
@@ -49,10 +41,6 @@ require_once("../../include/initialize.php");
 						$order->REMARKS				= $remarks;
 						$order->create();
 				  	}
-
-
-
-
 					 // $tableno = new Tables();
 					 // $tableno->STATUS       = 'Occupied';
 					 // $tableno->RESERVEDDATE = date('Y-m-d');
@@ -80,7 +68,6 @@ require_once("../../include/initialize.php");
 	           					 WHERE  o.`USERID` = u.`USERID` AND `STATUS`='Pending' AND `ORDERNO` ='".$orderno."'";
 						  		$mydb->setQuery($query);
 						  		$cur = $mydb->loadResultList();
-
 								foreach ($cur as $result) {
 						  		echo '<tr>';
 						  		echo '<td style="font-size:15px;">'.$result->DESCRIPTION.'</td>';
@@ -88,15 +75,11 @@ require_once("../../include/initialize.php");
 						  		echo '<td style="font-size:15px;"><input type="number" style="width:50px" class="orderqty" data-id="'.$result->ORDERID.'" id="'.$result->ORDERID.'orderqty" value="'.$result->QUANTITY.'" style="width:50px"></td>';
 						  		echo '<td style="text-align:center;font-size:15px;"> <output id="Osubtot'.$result->ORDERID.'">'.$result->SUBTOTAL.'</output></td>';
 						  		// echo '<td></td>';
-                  echo '<td style="text-align:center;"><a title="Cancel Order" class="btn btn-xs btn-danger" style="text-decoration:none;" href="controller.php?action=delete&id='.$result->ORDERID.'&rem='.$result->REMARKS.'"><i style="font-size:15px; padding:2px;" class="fa fa-trash-o"></i></a></td>';
+                                echo '<td style="text-align:center;"><a title="Cancel Order" class="btn btn-xs btn-danger" style="text-decoration:none;" href="controller.php?action=delete&id='.$result->ORDERID.'&rem='.$result->REMARKS.'"><i style="font-size:15px; padding:2px;" class="fa fa-trash-o"></i></a></td>';
 						  		echo '</tr>';
-
 						  		$total += $result->SUBTOTAL;
-
-
 						  		}
     						}
-
 				  		?>
 				  		<!-- <tr>
 				  			<td colspan="4"></td>
@@ -110,7 +93,6 @@ require_once("../../include/initialize.php");
     			<div style="font-size: 19px;font-weight: bold;margin-top:20px;margin-bottom: 3px">
             Summary
           </div>
-
           <table class="table table-bordered">
             <thead>
               <tr>
@@ -148,11 +130,6 @@ require_once("../../include/initialize.php");
                     <a target="_blank" href="tempreceipt.php?orderno=<?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?>&tableno=<?php echo isset($_GET['tableno']) ?  $_GET['tableno'] : "NONE" ?>" class="btn btn-default btn-lg fa fa-print"> <b>Imprimir para cocinar</b></a>
           </div>
         </div>
-
-
-
-
-
  <script type="text/javascript">
  	$("#SENIORADDNO").change(function(){
   var subtot = document.getElementById("totalamount").value;
@@ -164,40 +141,25 @@ require_once("../../include/initialize.php");
   var vatable = 0;
   var senioraddno = document.getElementById("SENIORADDNO").value;
   var totsenioraddno=0;
-
-
   if (senioraddno=="") {
     var totsub=0;
         totsub = parseFloat(subtot) + parseFloat(0);
-
         // alert(totsub)
         document.getElementById("overalltotal").value =totsub;
         $("#overalltot").val(totsub.toFixed(2));
       }else{
          vat = subtot / 1.12;
-
       // alert(vat)
-
       // vatable = subtot - vat;
-
       // alert(vatable);
-
       $totsenioraddno = .20 * senioraddno;
-
       seniorval =vat * $totsenioraddno;
-
       // alert(seniorval);
-
       overalltot = vat - seniorval;
-
       document.getElementById("overalltotal").value = overalltot;
-
       document.getElementById("overalltot").value = overalltot.toFixed(2);
       }
-
-
     });
-
     $("#SENIORADDNO").keyup(function(){
   var subtot = document.getElementById("totalamount").value;
   var seniorpercent = document.getElementById("SENIORCITIZEN");
@@ -208,38 +170,23 @@ require_once("../../include/initialize.php");
   var vatable = 0;
   var senioraddno = document.getElementById("SENIORADDNO").value;
   var totsenioraddno=0;
-
-
   if (senioraddno=="") {
     var totsub=0;
         totsub = parseFloat(subtot) + parseFloat(0);
-
         // alert(totsub)
         document.getElementById("overalltotal").value =totsub;
         $("#overalltot").val(totsub.toFixed(2));
       }else{
          vat = subtot / 1.12;
-
       // alert(vat)
-
       // vatable = subtot - vat;
-
       // alert(vatable);
-
       $totsenioraddno = .20 * senioraddno;
-
       seniorval =vat * $totsenioraddno;
-
       // alert(seniorval);
-
       overalltot = vat - seniorval;
-
       document.getElementById("overalltotal").value = overalltot;
-
       document.getElementById("overalltot").value = overalltot.toFixed(2);
       }
-
-
     });
-
  </script>
