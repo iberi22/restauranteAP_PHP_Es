@@ -24,7 +24,7 @@ class Database {
 
 		}else{
 
-			$db_select = mysqli_select_db($this->conn,"dbplazacafe");
+			$db_select = mysqli_select_db($this->conn,"gustoysabor");
 			if (!$db_select) {
 				echo "Problem in selecting database! Contact administrator!";
 				exit();

@@ -21,7 +21,8 @@ $(document).on("keyup", "#tenderamount", function() {
 
 	sukli = tenderamount - totalamount;
 
-	$("#sukli").val(sukli.toFixed(2));
+	// $("#sukli").val(sukli.toFixed(2));
+    $("#sukli").val(new Intl.NumberFormat('es-MX').format(sukli));
 
 	// alert(totalamount);
 	if (tenderamount == 0 || tenderamount == "") {
