@@ -1,34 +1,48 @@
 <?php
 require_once("include/initialize.php");
 ?>
-    <?php
+<?php
 if (isset($_SESSION['WAITER_USERID'])) {
     redirect("index.php");
 }
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="description" content="Restaurant free app">
-        <meta name="keywords" content="restaurant,app,free">
-        <meta name="author" content="iberi@gmail.com">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Restaurant free app">
+    <meta name="keywords" content="restaurant,app,free">
+    <meta name="author" content="iberi@gmail.com">
 
     <title>
         Gusto y sabor Restaurante.
     </title>
     <link rel="icon" href="favicon-1.ico" type="image/x-icon">
     <link rel="stylesheet" href="admin/css/style.css">
+    <!-- //Meta-Tags -->
+    <!-- Index-Page-CSS -->
+    <link rel="stylesheet" href="web_index/css/style.css" type="text/css" media="all">
+    <!-- //Custom-Stylesheet-Links -->
+    <!--fonts -->
+    <!-- //fonts -->
+    <link rel="stylesheet" href="web_index/css/font-awesome.min.css" type="text/css" media="all">
+    <!-- //Font-Awesome-File-Links -->
 
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+    <!-- Google fonts -->
 </head>
+
 <body>
-    <div class="maindiv">
+    <!-- <div class="maindiv">
 
         <div class="sondiv">
-            <form  class="form-4" action="" method="POST" >
+            <form class="form-4" action="" method="POST">
                 <h1>Inicio de Session</h1>
                 <p>
                     <label for="login">Nombre de usuario</label>
@@ -40,36 +54,115 @@ if (isset($_SESSION['WAITER_USERID'])) {
                 </p>
 
                 <p>
-                    <input type="submit" name="btnLogin"  value="Iniciar">
+                    <input type="submit" name="btnLogin" value="Iniciar">
                 </p>
             </form>​
         </div>
-    </div>
+    </div> -->
+    <section class="main">
+        <div class="layer">
 
-
-
-   <!-- <form class="form-1" action="" method="POST">
-        <p class="field">
-            <input type="text" name="login" placeholder="Username or email">
-            <i class="icon-user icon-large"></i>
-        </p>
-            <p class="field">
-            <input type="password" name="password" placeholder="Password">
-            <i class="icon-lock icon-large"></i>
-        </p>
-        <p class="submit">
-            <button type="submit" name="submit"><i class="icon-arrow-right icon-large"></i></button>
-        </p>
-    </form> -->
+            <div class="bottom-grid">
+                <div class="logo">
+                    <h1> <a href="index.php"><span class="fa fa-key"></span> MyRestaurant</a></h1>
+                </div>
+                <div class="links">
+                    <ul class="links-unordered-list">
+                        <li class="">
+                            <a href="#" class="">About Us</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="">Register</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="">Contact</a>
+                        </li>
+                        <li class="active">
+                            <a href="#" class="">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-w3ls">
+                <div class="text-center icon">
+                    <span class="htmls3"></span>
+                </div>
+                <div class="content-bottom">
+                    <form action="#" method="post">
+                        <div class="field-group">
+                            <span class="fa fa-user" aria-hidden="true"></span>
+                            <div class="wthree-field">
+                                <input name="user_email" placeholder="Nombre de usuario" id="text1" type="text" value="" required>
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <span class="fa fa-lock" aria-hidden="true"></span>
+                            <div class="wthree-field">
+                                <input name="user_pass" placeholder="Contraseña" id="myInput" type="Password">
+                            </div>
+                        </div>
+                        <div class="wthree-field">
+                            <!-- <input type="submit" class="btn" name="btnLogin" value="Iniciar"> -->
+                            <button type="submit" name="btnLogin" class="btn">Iniciar</button>
+                        </div>
+                        <!-- <ul class="list-login">
+                            <li class="switch-agileits">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                    Matener logueado
+                                </label>
+                            </li>
+                            <li>
+                                <a href="#" class="text-right">Olvido su contraseña?</a>
+                            </li>
+                            <li class="clearfix"></li>
+                        </ul> -->
+                        <!-- <ul class="list-login-bottom">
+                            <li class="">
+                                <a href="#" class="">Create Account</a>
+                            </li>
+                            <li class="">
+                                <a href="#" class="text-right">Need Help?</a>
+                            </li>
+                            <li class="clearfix"></li>
+                        </ul> -->
+                    </form>
+                </div>
+            </div>
+            <div class="bottom-grid1">
+                <div class="links">
+                    <ul class="links-unordered-list">
+                        <li class="">
+                            <a href="#" class="">About Us</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="">Privacy Policy</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p> © 2019 MyRestaurant. All rights reserved |
+                        <!-- Design by
+                        <a href="http://w3layouts.com">W3layouts</a> -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
+
 </html>
-        <?php
+<?php
 if (isset($_POST['btnLogin'])) {
     $email   = trim($_POST['user_email']);
     $upass   = trim($_POST['user_pass']);
     $h_upass = sha1($upass);
-    if ($email == '' OR $upass == '') {
+    if ($email == '' or $upass == '') {
         message("Usuario o contraseña invalido!", "error");
         redirect("login.php");
     } else {
