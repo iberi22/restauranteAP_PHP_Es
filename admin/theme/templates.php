@@ -52,7 +52,7 @@ $viewTitle = $mydb->loadSingleResult();
 ?>
 <style type="text/css">
     .nav {
-        font-size: 16px;
+        /* font-size: 16px; */
     }
 </style>
 <body>

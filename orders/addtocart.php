@@ -65,7 +65,7 @@
 
                <div id="placeorder">
               <div class="row" >
-                <label class="col-xs-2"  style="height: 30px;text-align:  center; font-size: 12px" >Table No.</label>
+                <label class="col-xs-2"  style="height: 30px;text-align:  center; font-size: 12px" >Mesa No.</label>
                 <div class="col-xs-2">
                   <select style="font-size:15px;" name="tableno" id="tableno"   >
 
@@ -92,12 +92,12 @@
 
                    <div class="col-xs-2">
                   <select style="font-size:15px;"  name="REMARKS" id="REMARKS"   >
-                    <option value="Dine-In">Dine In</option>
-                    <option value="Take-Out">Take Out</option>
+                    <option value="Servir">Servir</option>
+                    <option value="Llevar">Llevar</option>
                   </select>
                 </div>
                 <div class="col-xs-2">
-                   <button  style="height: 30px;text-align:  center; font-size: 12px"  type="submit" id="submit" name="submit" class="text-center btn btn-primary  btn-xs">Place Order</button>
+                   <button  style="height: 30px;text-align:  center; font-size: 12px"  type="submit" id="submit" name="submit" class="text-center btn btn-primary  btn-xs">Realizar Orden</button>
                 </div>
               </div>
              </div>

@@ -1,6 +1,8 @@
 <?php
 
 
+// echo"as";
+
 require_once("include/initialize.php");
  if (!isset($_SESSION['WAITER_USERID'])){
       redirect("login.php");
@@ -8,7 +10,7 @@ require_once("include/initialize.php");
 
 $view = (isset($_GET['view']) && $_GET['view'] != '') ? $_GET['view'] : '';
 
- $header=$view;
+$header=$view;
 switch ($view) {
 	case 'cart' :
 		$content    = 'cart.php';
@@ -34,7 +36,6 @@ switch ($view) {
 	case 'orders' :
 		$content    = 'listoforders.php';
 		break;
-
 	default :
 		$content    = 'home.php';
 }

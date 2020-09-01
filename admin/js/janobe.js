@@ -38,7 +38,7 @@ $(document).on("click", "#save", function() {
 			"font-size"    : "12px"
 		});
 		$("#errortrap").fadeIn("slow");
-		$("#errortrap").html("Please enter an amount.");
+		$("#errortrap").html("Ingrese una cantidad o una cuenta");
 		return false;
 	} else if (sukli < 0) {
 		$("#errortrap").css({
@@ -62,7 +62,7 @@ $(document).on("keyup", ".orderqty", function() {
 	var inptqty = document.getElementById(id + "orderqty").value;
 	var price = document.getElementById(id + "orderprice").value;
 	var subtot;
-	// alert(price)
+	// alert(price);
 	$.ajax({
 		type: "POST",
 		url: "controller.php?action=edit",
@@ -87,10 +87,14 @@ $(document).on("keyup", ".orderqty", function() {
 	});
 });
 $(document).on("change", ".orderqty", function() {
-	var id = $(this).data("id");
-	var inptqty = document.getElementById(id + "orderqty").value;
-	var price = document.getElementById(id + "orderprice").value;
+    const options2         = { style: 'currency', currency: 'USD' };
+    const numberFormat2    = new Intl.NumberFormat('en-US', options2);
+	var id                 = $(this).data("id");
+	var inptqty            = document.getElementById(id + "orderqty").value;
+	var price              = document.getElementById(id + "orderprice").value;
 	var subtot;
+
+    console.log(inptqty,price);
 	// alert(price)
 	$.ajax({
 		type: "POST",
@@ -108,9 +112,12 @@ $(document).on("change", ".orderqty", function() {
 				sum += parseFloat(items[i].value);
 			var output = document.getElementById("totamnt");
 			// output.innerHTML =  sum.toFixed(2);
-			output.value = sum.toFixed(2);
+            output.value = ""+sum.toFixed(2);
 			document.getElementById("totalamount").value = sum;
-			document.getElementById("overalltot").value = sum.toFixed(2);
+
+
+            document.getElementById("overalltot").value = numberFormat2.format(sum);
+            // document.getElementById("overalltot").value = "$ "+res;
 			document.getElementById("overalltotal").value = sum;
 		}
 	});

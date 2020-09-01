@@ -121,17 +121,6 @@
         <?php echo check_message(); ?>
         <ul id="filter-list" class="clearfix">
             <li><a style="text-decoration: none;" class="filter <?php echo (!isset($_GET['category']) || $_GET['category'] == 'ALL') ? 'navactive' : '' ?>" href="index.php?view=menu&category=ALL&rem=<?php echo $remarks ?>">Todo</a></li>
-            <?php
-            // $categ = isset($_GET['category']) ? $_GET['category'] : '';
-            // $sql = "SELECT * FROM tblcategory";
-            // $mydb->SetQuery($sql);
-            // $cur = $mydb->loadResultList();
-            // foreach ($cur as $result) {
-            //     ?>
-            <!-- //     <li><a style="text-decoration: none;" href="index.php?view=menu&category=<?php echo $result->CATEGORY ?>&rem=<?php echo $remarks ?>" class="filter <?php echo ($result->CATEGORY == $categ) ?   "navactive" : ""  ?> "><?php echo $result->CATEGORY; ?></a></li> -->
-            <?php
-            // }
-            ?>
         </ul><!-- @end #filter-list -->
         <ul id="portfolios">
             <?php
