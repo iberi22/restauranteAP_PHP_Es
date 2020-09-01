@@ -1,4 +1,3 @@
-
 <?php
     require_once ("../../include/initialize.php");
     if (isset($_POST['MEALID'])){//add to cart
@@ -7,14 +6,11 @@
       $query    = "SELECT * FROM `tblmeals` WHERE  MEALID='".$mealid."'";
       $mydb->setQuery($query);
       $cur      = $mydb->loadSingleResult();
-
-
       $id       = $cur->MEALID;
       $meals    = $cur->MEALS;
       $price    = $cur->PRICE;
       $qty      = 1;
       $subtotal = $cur->PRICE * 1;
-
       admin_addtocart($id,$meals,$price,$qty,$subtotal);
     }
 ?>
@@ -30,7 +26,6 @@
           if (!empty($_SESSION['admin_gcCart'])){
             $count_cart = count($_SESSION['admin_gcCart']);
               for ($i=0; $i < $count_cart  ; $i++) {
-
                     echo  '<tr>
                           <td>'.$_SESSION['admin_gcCart'][$i]['meals'].'</td>
                           <td><input style="height:20px" type="hidden" name="price" id="'.$_SESSION['admin_gcCart'][$i]['mealid'].'price"  value="'.$_SESSION['admin_gcCart'][$i]['price'].'"/> '.$_SESSION['admin_gcCart'][$i]['price'].'</td>
@@ -38,13 +33,9 @@
                           <td> <output id="Osubtot'.$_SESSION['admin_gcCart'][$i]['mealid'].'">'.$_SESSION['admin_gcCart'][$i]['subtotal'].'</output></td>
                            <td><a class="btn btn-xs btn-danger removecartadmin" style="text-decoration:none;" data-id='.$_SESSION['admin_gcCart'][$i]['mealid'].' ><i class="fa fa-trash-o"></i></a></td>
                         </tr>';
-
                         $cart += $_SESSION['admin_gcCart'][$i]['qty'];
                         $subtotal += $_SESSION['admin_gcCart'][$i]['subtotal'];
-
              }
-
-
           }
                 // echo  '<tfoot>
                 //           <tr>
@@ -53,25 +44,18 @@
                 //             <td>
                 //           </tr>
                 //           </tfoot>';
-
-
                           ?>
-
-
 </table>
             <?php
               if ($subtotal > 0) {
              ?>
-
                <div id="placeorder">
               <div class="row" >
                 <label class="col-xs-2"  style="height: 30px;text-align:  center; font-size: 12px" >Mesa No.</label>
                 <div class="col-xs-2">
                   <select  name="tableno" id="tableno"   >
-
                                   <?php
                             //Statement
-
                         // $mydb->setQuery("SELECT * FROM `tbltable` where STATUS = 'Occupied' AND `RESERVEDDATE`='".date_create('Y-m-d')."' order by asc");
                         // $cur = $mydb->loadResultList();
                         //  foreach ($cur as $result) {
@@ -82,18 +66,23 @@
                                       //Statement
                                     $mydb->setQuery("SELECT * FROM `tbltable`  WHERE STATUS='Available'  order by TABLENO asc");
                                     $cur = $mydb->loadResultList();
-
-                                  foreach ($cur as $result) {
-                                    echo  '<option value='.$result->TABLENO.' >'.$result->TABLENO.'</option>';
+                                    var_dump($cur);
+                                    if (!$cur) {
+                                      echo  '<option value="0" >Sin Mesa</option>';
+                                    }else{
+                                        foreach ($cur as $result) {
+                                            echo  '<option value='.$result->TABLENO.' >'.$result->TABLENO.'</option>';
+                                        }
                                     }
                                     ?>
                                        </select>
                 </div>
-
                    <div class="col-xs-2">
                   <select   name="REMARKS" id="REMARKS"   >
-                    <option value="Dine-In">Cenar en mesa(Dine In)</option>
-                    <option value="Take-Out">Para llevar(Take Out)</option>
+                    <!-- <option value="Servir">Para Servir</option>
+                    <option value="Llevar">Para llevar</option> -->
+                     <option value="Servir">Servir</option>
+                    <option value="Llevar">Llevar</option>
                   </select>
                 </div>
                 <div class="col-xs-2">

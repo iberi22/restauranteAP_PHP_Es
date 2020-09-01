@@ -3,23 +3,18 @@ require_once("../../include/initialize.php");
    if (!isset($_SESSION['ADMIN_ROLE'])=='Cashier'){
       redirect("../../index.php");
      }
-
 ?>
 <?php
     $cart_value =0;
     if (isset($_SESSION['admin_gcCart'])) {
         if (!empty($_SESSION['admin_gcCart'])){
-
             $count_cart = count($_SESSION['admin_gcCart']);
-
             for ($i=0; $i < $count_cart  ; $i++) {
                    $cart_value  +=  $_SESSION['admin_gcCart'][$i]['qty'];
             }
         }
        }
-
 ?>
-
 <style type="text/css">
   .form-control:focus{
     width: 100%;
@@ -54,9 +49,7 @@ require_once("../../include/initialize.php");
     </form>
       <BR/> -->
       <div  id="resulttable">
-
       <input class="form-control" id="myInput" placeholder="Busca aquí..." style="font-size: 20px; margin-bottom: 10px;" type="search" name="SearchMe" onkeyup="SearchTable()">
-
       <table id="dashtable" class="table table-striped table-bordered table-hover " cellspacing="0" >
            <thead style="font-size: 15px;">
             <tr>
@@ -66,18 +59,15 @@ require_once("../../include/initialize.php");
               <th width="20">Acciones</th>
             </tr>
           </thead>
-
         <tbody>
             <?php
               $query = "SELECT * FROM `tblmeals` m , `tblcategory` c
                      WHERE  m.`CATEGORYID` = c.`CATEGORYID` ";
               $mydb->setQuery($query);
               $cur = $mydb->loadResultList();
-
             foreach ($cur as $result) {
               echo '<tr>';
               echo '<td style="font-size:15px;">'.$result->MEALS.'</a></td>';
-
               echo '<td>'. $result->CATEGORY.'</td>';
               echo '<td> &#36; '.  number_format($result->PRICE,2).'</td>';
               echo '<td align="center">
@@ -86,8 +76,6 @@ require_once("../../include/initialize.php");
             }
             ?>
           </tbody>
-
-
         </table>
         </div>
   </div>
@@ -99,7 +87,6 @@ require_once("../../include/initialize.php");
     font-size: 14px;
     padding: 0px;
   }
-
   #placeorder{
     width: 600px;
     font-size: 18px;
@@ -143,7 +130,6 @@ require_once("../../include/initialize.php");
           if (!empty($_SESSION['admin_gcCart'])){
             $count_cart = count($_SESSION['admin_gcCart']);
               for ($i=0; $i < $count_cart  ; $i++) {
-
                     echo  '<tr>';
                     echo  '<td>'.$_SESSION['admin_gcCart'][$i]['meals'].'</td>';
                     echo  '<td style="font-size:15px;"><input style="height:20px" type="hidden" name="price" id="'.$_SESSION['admin_gcCart'][$i]['mealid'].'price"  value="'.$_SESSION['admin_gcCart'][$i]['price'].'"/> '.$_SESSION['admin_gcCart'][$i]['price'].'</td>';
@@ -152,37 +138,28 @@ require_once("../../include/initialize.php");
                     echo  '<td align="center"> <output style="font-size:15px;" id="Osubtot'.$_SESSION['admin_gcCart'][$i]['mealid'].'">'.$_SESSION['admin_gcCart'][$i]['subtotal'].'</output></td>';
                     echo '<td><a class="btn btn-sm btn-danger removecartadmin" style="text-decoration:none; font-size:15px;" data-id='.$_SESSION['admin_gcCart'][$i]['mealid'].' ><i class="fa fa-shopping-cart"></i></a></td>';
                     echo  '</tr>';
-
                         $cart += $_SESSION['admin_gcCart'][$i]['qty'];
                         $subtotal += $_SESSION['admin_gcCart'][$i]['subtotal'];
              }
-
-
           }
                 // echo  '<tr>
                 //             <td colspan="3" ><p class="stot">Total</p></td>
                 //             <td> &#36; <span id="sum" class="stot">'. $subtotal.'</span></td>
                 //             <td>
                 //           </tr>';
-
-
                           ?>
-
   </tbody>
 </table>
             <?php
               if ($subtotal > 0) {
              ?>
-
              <div id="placeorder">
               <div class="row" >
                 <label class="col-xs-2"  style="height: 30px;text-align:  center; font-size: 13px">Mesa No.</label>
                 <div class="col-xs-2">
                   <select style="font-size: 15px; font-weight: bold;" name="tableno" id="tableno">
-
                                   <?php
                             //Statement
-
                         // $mydb->setQuery("SELECT * FROM `tbltable` where STATUS = 'Occupied' AND `RESERVEDDATE`='".date_create('Y-m-d')."' order by asc");
                         // $cur = $mydb->loadResultList();
                         //  foreach ($cur as $result) {
@@ -193,18 +170,24 @@ require_once("../../include/initialize.php");
                                       //Statement
                                     $mydb->setQuery("SELECT * FROM `tbltable` WHERE STATUS='Available'   order by TABLENO asc");
                                     $cur = $mydb->loadResultList();
-
-                                  foreach ($cur as $result) {
-                                    echo  '<option style="font-size:15px;" value='.$result->TABLENO.' >'.$result->TABLENO.'</option>';
+                                    //  var_dump($cur);
+                                    if (!$cur) {
+                                      echo  '<option value="0" >Sin Mesa</option>';
+                                    }else{
+                                        foreach ($cur as $result) {
+                                            echo  '<option value='.$result->TABLENO.' >'.$result->TABLENO.'</option>';
+                                        }
                                     }
+                                    // foreach ($cur as $result) {
+                                    //     echo  '<option style="font-size:15px;" value='.$result->TABLENO.' >'.$result->TABLENO.'</option>';
+                                    // }
                                     ?>
                                        </select>
                 </div>
-
                    <div class="col-xs-2">
                   <select  style="font-size: 15px;" name="REMARKS" id="REMARKS">
-                    <option value="DineIn">Servir en mesa(Dine in)</option>
-                    <option value="TakeOut">Para llevar(Take Out)</option>
+                    <option value="Servir">Servir</option>
+                    <option value="Llevar">Llevar</option>
                   </select>
                 </div>
                 <div class="col-xs-2">
@@ -214,11 +197,8 @@ require_once("../../include/initialize.php");
              </div>
           <div class="clear"></div>
           <?php } ?>
-
 </div>
           </form>
-
-
   </div>
 <!-- end panel sign up -->
 </div>
@@ -229,10 +209,8 @@ require_once("../../include/initialize.php");
                   "sort": false
                 //   "lengthChange" : false;
         });
-
     });
    </script>
-
  <script>
 function SearchTable() {
   // Declare variables
@@ -242,7 +220,6 @@ function SearchTable() {
   table  = document.getElementById("dashtable");
   tr     = table.getElementsByTagName("tr");
   td     = table.getElementsByTagName("td");
-
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[0];

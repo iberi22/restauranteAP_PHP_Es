@@ -13,7 +13,6 @@
 	        background-color: #eee;
 	        /*overflow-y    : hidden;*/
 	    }
-
 	    .scrollorder {
 	        /*width     : auto;*/
 	        /* height   : 450px; */
@@ -22,23 +21,45 @@
 	        /*overflow-y: hidden;*/
 	        padding: 0px;
 	    }
-
 	    .page-header {
 	        font-size: 25px;
 	        font-weight: bold;
 	        margin-left: 0;
 	    }
-
 	    .form-control {
 	        width: 59%;
 	        margin-bottom: 20px;
 	    }
-
+	    .botones_acciones_pos {
+	       display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+	    }
 	    input[type="checkbox"] {
 	        width: 30px;
 	        height: 30px;
 	        margin-left: 80px;
 	    }
+        .links {
+            text-align: center;
+            width: 300px;
+            margin-top:5%;
+            margin-left:5%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+            .gray-button {
+                text-align: center;
+                background-color: #aaa;
+                padding: 6px 12px 10px 12px;
+                width: 160px;
+                height: 33px;
+                color: white;
+                border-radius: 6px;
+                font-size: 13px;
+                font-weight: bold;
+            }
 	</style>
 	<form class="form" action="controller.php?action=add" method="POST" target="_blank">
 	    <!-- orders -->
@@ -57,6 +78,7 @@
 	                                <th>Mesa No.</th>
 	                                <th>Mesero</th>
 	                                <th>Estado</th>
+                                    <th>Servido/despachado</th>
 	                            </tr>
 	                        </thead>
 	                        <tbody>
@@ -67,12 +89,24 @@
                                 $mydb->setQuery($query);
                                 $cur = $mydb->loadResultList();
                                 foreach ($cur as $result) {
+                                    if ($result->STATUS_KITCHEN_ID) {
+                                       $color = "#ea4646fa";
+                                       $text  = 'Pendiente por Servir/Despachar';
+                                    }else{
+                                       $color = "green";
+                                       $text  = 'Despachado/Servido';
+                                    }
                                     echo '<tr>';
                                     echo '<td><a style="font-size:15px; font-weight:bold;" href="index.php?view=POS&orderno=' . $result->ORDERNO . '&tableno=' . $result->TABLENO . '&rem=' . $result->REMARKS . '" >' . $result->ORDERNO . '</a></td>';
                                     echo '<td align="center">' . $result->TABLENO . '</td>';
                                     echo '<td>' . $result->FULLNAME . '</td>';
                                     echo '<td>' . $result->REMARKS . '</td>';
-                                    echo '</tr>';
+                                    echo '  <td style="
+                                                font-weight:600;
+                                                 background-color: '.$color.'">
+                                                ' .  $text . '
+                                            </td>';
+                                    echo'</tr>';
                                 }
                                 ?>
 	                        </tbody>
@@ -89,7 +123,7 @@
 	            <div class="row">
 	                <div style="font-size: 24px;font-weight: bold;margin-top: 10px;">
 	                    Detalles de ordenes
-	                    <small><?php echo isset($_GET['tableno']) ? " for Table Number: " . $_GET['tableno'] : "" ?> <?php echo isset($_GET['rem']) ? "| " . $_GET['rem'] : "" ?></small>
+	                    <small><?php echo isset($_GET['tableno']) ? " para la mesa N°: " . $_GET['tableno'] : "" ?> <?php echo isset($_GET['rem']) ? "| " . $_GET['rem'] : "" ?></small>
 	                    <span><?php echo isset($_GET['orderno']) ?  '<a href="addmeal.php?view=addmeal&orderno=' . $_GET['orderno'] . '&tableno=' . $_GET['tableno'] . '&rem=' . $remarks . '" data-toggle="lightbox" class="btn btn-s btn-primary " data-title="<b>Añadir Plato</b>"><i class="fa fa-plus-circle"> Añadir Plato</i></a>' : ''; ?></span>
 	                    <p style="text-align: right;font-size: 20px;">Numero Orden:<b style="text-decoration: underline;">
 	                            <?php
@@ -122,11 +156,28 @@
                                         $mydb->setQuery($query);
                                         $cur = $mydb->loadResultList();
                                         foreach ($cur as $result) {
+                                            $url="index.php?view=POS&orderno=' . $result->ORDERNO . '&tableno=' . $result->TABLENO . '&rem=' . $result->REMARKS . '";
                                             echo '<tr>';
                                             echo '<td style="font-size:15px;">' . $result->DESCRIPTION . '</td>';
-                                            echo '<td style="font-size:15px;">&#36; <input type="hidden" id="' . $result->ORDERID . 'orderprice" value="' . $result->PRICE . '" >' . $result->PRICE . '</td>';
-                                            echo '<td style="font-size:15px;"><input type="number" min="1" class="orderqty" data-id="' . $result->ORDERID . '" id="' . $result->ORDERID . 'orderqty" value="' . $result->QUANTITY . '" style="width:50px"></td>';
-                                            echo '<td style="text-align:center;"><output style="font-size:15px;" id="Osubtot' . $result->ORDERID . '">' . $result->SUBTOTAL . '</output></td>';
+                                            echo '<td style="font-size:15px;"><input type="hidden" id="' . $result->ORDERID . 'orderprice" value="' . $result->PRICE . '" >' . number_format($result->PRICE) . '</td>';
+                                            echo '
+                                                <td style="font-size:15px;">
+                                                    <input
+                                                        type    = "number"
+                                                        min     = "1"
+                                                        class   = "orderqty"
+                                                        data-id = "'.$result->ORDERID . '"
+                                                        id      = "'.$result->ORDERID .'orderqty"
+                                                        value   = "'.$result->QUANTITY . '"
+                                                        style   = "width:50px"
+                                                    >
+                                                </td>';
+                                            echo '<td style="text-align:center;">
+                                                        <output
+                                                            style="font-size:15px;padding-top: 0px;"
+                                                            id="Osubtot' . $result->ORDERID . '"
+                                                        >' . $result->SUBTOTAL. '</output>
+                                                </td>';
                                             // echo '<td></td>';
                                             echo '<td style="text-align:center;"><a title="Cancel Order" class="btn btn-xs btn-danger" style="text-decoration:none;" href="controller.php?action=delete&id=' . $result->ORDERID . '&rem=' . $result->REMARKS . '"><i style="font-size:15px; padding:2px;" class="fa fa-trash-o"></i></a></td>';
                                             echo '</tr>';
@@ -149,7 +200,7 @@
 	                    <table class="table table-bordered">
 	                        <thead>
 	                            <tr>
-	                                <th width="250">Sub-Total</th>
+	                                <th width="250" style="text-align: center;padding-bottom: 27px;">Sub-Total</th>
 	                                <th><input class="form-control" type="text" id="totamnt" readonly="true" value="<?php echo number_format($total, 2); ?>">
 	                                    <input type="hidden" name="totalamount" id="totalamount" value="<?php echo $total; ?>"></th>
 	                            </tr>
@@ -165,41 +216,104 @@
                             </tr> -->
 	                            </tr>
 	                            <tr>
-	                                <th width="250">Total</th>
-	                                <th><input class="form-control" type="text" id="overalltot" readonly="true" value="<?php echo number_format($total, 2); ?>">
-	                                    <input type="hidden" name="overalltotal" id="overalltotal" value="<?php echo $total; ?>"></th>
+	                                <th width="250" style="text-align: center;padding-bottom: 27px;">Total + Impuestos</th>
+	                                <th>
+                                        <input class="form-control" type="text" id="overalltot" readonly="true" value="<?php echo number_format($total, 2); ?>">
+	                                    <input type="hidden" name="overalltotal" id="overalltotal" value="<?php echo $total; ?>">
+                                    </th>
 	                            </tr>
 	                            <tr>
-	                                <th width="250">Pagan Con</th>
+	                                <th width="250" style="text-align: center;padding-bottom: 27px;">Pagan Con</th>
 	                                <th>
-	                                    <input type="text" class="form-control" name="tenderamount" id="tenderamount" placeholder="&#36; 0.00" autocomplete="off">
+	                                    <input style="display:inline;" type="text" class="form-control" name="tenderamount" id="tenderamount" placeholder="&#36; 0.00" autocomplete="off">
+                                        <button type="button"  data-img='true' class="btn btn-primary" data-toggle="modal" data-target="#myModal">Vincular a Cuenta</button>
 	                                    <span id="errortrap"></span>
 	                                </th>
 	                            </tr>
 	                            <tr>
-	                                <th width="250">devuelto(ta) o cambio</th>
+	                                <th width="250" style="text-align: center;padding-bottom: 27px;">Cambio</th>
 	                                <th><input class="form-control" type="" class="sukli" class="numbers" readonly="true" name="sukli" id="sukli" value="" placeholder="&#36; 0.00"></th>
 	                            </tr>
 	                        </thead>
 	                    </table>
-	                    <div style="margin-bottom: 20px;">
-	                        <button target="_blank" type="submit" name="save" class="btn btn-primary btn-lg fa fa-save" id="save"> Guardar e imprimir</button>
-	                        <a style="margin-top: 10px;" target="_blank" href="tempreceipt.php?orderno=<?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?>&tableno=<?php echo isset($_GET['tableno']) ?  $_GET['tableno'] : "NONE" ?>" class="btn btn-default btn-lg fa fa-print"> <b>Imprimir para cocinar</b></a>
+	                    <div class="botones_acciones_pos">
+	                        <button target="_blank" type="submit" name="save" class="btn btn-primary btn-lg fa fa-save" id="save">
+                                Enviar a cocina
+                            </button>
+	                        <!-- <a style="margin-top: 10px;" target="_blank" href="tempreceipt.php?orderno=<?php echo isset($_GET['orderno']) ?  $_GET['orderno'] : "NONE" ?>&tableno=<?php echo isset($_GET['tableno']) ?  $_GET['tableno'] : "NONE" ?>" class="btn btn-default btn-lg fa fa-print">
+                                <b>Imprimir para cocinar</b>
+                            </a> -->
 	                    </div>
 	                </div>
 	                <!-- end summary -->
 	            </div>
 	        </div>
 	</form>
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Cuentas</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>N° CC</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $remarks = isset($_GET['rem']) ? $_GET['rem'] : "";
+                    $query = "SELECT * FROM `tblacount` ";
+                    $mydb->setQuery($query);
+                    // query sum of aocounts
+                    $cur = $mydb->loadResultList();
+                    foreach ($cur as $result) {
+                        $query2 = "SELECT sum_all_orden_acount_owe($result->TABLEID) AS SUM";
+                        $mydb->setQuery($query2);
+                        $cur2    = $mydb->loadSingleResult();
+                        echo '<tr style="cursor: pointer;" data-dismiss="modal" id="'.$result->TABLEID.'" name="'.$result->NAME.'"  onClick="fun(this)">';
+                        echo '  <td>
+                                      <a style="font-size:15px; font-weight:bold;" href ="index.php?view=POS&orderno=' . $result->TABLEID . '&tableno=' .  $result->TABLEID . '&rem=' . $result->TABLEID . '" >'.$result->ID_NUMBER.'</a></td>';
+                        echo '  <td align="center">' . $result->NAME . '</td>';
+                        echo '  <td>$ ' . number_format($cur2->SUM) . '</td>';
+                        echo '</td>';
+
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 	<script>
+        function fun(params) {
+            console.log(params.name);
+
+	        tenderamount = document.getElementById("tenderamount");
+
+            tenderamount.value="Cuenta enlazada: beri";
+        }
+
 	    function SearchTable() {
 	        // Declare variables
 	        var input, filter, table, tr, td, i;
-	        input = document.getElementById("myInput");
+	        input  = document.getElementById("myInput");
 	        filter = input.value.toUpperCase();
-	        table = document.getElementById("dashtable");
-	        tr = table.getElementsByTagName("tr");
-	        td = table.getElementsByTagName("td");
+	        table  = document.getElementById("dashtable");
+	        tr     = table.getElementsByTagName("tr");
+	        td     = table.getElementsByTagName("td");
 	        // Loop through all table rows, and hide those who don't match the search query
 	        for (i = 0; i < tr.length; i++) {
 	            td = tr[i].getElementsByTagName("td")[0];

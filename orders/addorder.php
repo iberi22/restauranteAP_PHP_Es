@@ -3,24 +3,18 @@ require_once("../../include/initialize.php");
  if (!isset($_SESSION['WAITER_USERID'])){
       redirect("../login.php");
  }
-
-
 ?>
 <?php
     $cart_value =0;
     if (isset($_SESSION['admin_gcCart'])) {
         if (!empty($_SESSION['admin_gcCart'])){
-
             $count_cart = count($_SESSION['admin_gcCart']);
-
             for ($i=0; $i < $count_cart  ; $i++) {
                    $cart_value  +=  $_SESSION['admin_gcCart'][$i]['qty'];
             }
         }
        }
-
 ?>
-
 <!-- Nav tabs -->
 <ul class="nav nav-pills">
     <li class="active"><a href="#home" data-toggle="tab">List of Meals</a>
@@ -34,7 +28,6 @@ require_once("../../include/initialize.php");
        </a>
     </li>
 </ul>
-
 <!-- Tab panes  login panel-->
 <div class="tab-content">
   <div class="tab-pane fade in active" id="home">
@@ -54,18 +47,15 @@ require_once("../../include/initialize.php");
               <th width="20"></th>
             </tr>
           </thead>
-
         <tbody>
             <?php
               $query = "SELECT * FROM `tblmeals` m , `tblcategory` c
                      WHERE  m.`CATEGORYID` = c.`CATEGORYID` ";
               $mydb->setQuery($query);
               $cur = $mydb->loadResultList();
-
             foreach ($cur as $result) {
               echo '<tr>';
               echo '<td>'.$result->MEALS.'</a></td>';
-
               echo '<td>'. $result->CATEGORY.'</td>';
               echo '<td> &#36; '.  number_format($result->PRICE,2).'</td>';
               echo '<td align="center">
@@ -74,8 +64,6 @@ require_once("../../include/initialize.php");
             }
             ?>
           </tbody>
-
-
         </table>
         </div>
   </div>
@@ -87,7 +75,6 @@ require_once("../../include/initialize.php");
     font-size: 14px;
     padding: 0px;
   }
-
   #placeorder{
     width: 600px;
     font-size: 18px;
@@ -116,13 +103,13 @@ require_once("../../include/initialize.php");
 <div id="cart">
 <table id="table" class="table table-responsive">
 <thead>
-  <tr>
-  <th>Plato</th>
-  <th width="80">Precio</th>
-  <th width="80">Qty</th>
-  <th width="80">Sub-total</th>
-  <th width="20">Acciones</th>
-  </tr>
+    <tr>
+        <th>Plato</th>
+        <th width="80">Precio</th>
+        <th width="80">Qty</th>
+        <th width="80">Sub-total</th>
+        <th width="20">Acciones</th>
+    </tr>
 </thead>
 <tbody>
    <?php
@@ -131,7 +118,6 @@ require_once("../../include/initialize.php");
           if (!empty($_SESSION['admin_gcCart'])){
             $count_cart = count($_SESSION['admin_gcCart']);
               for ($i=0; $i < $count_cart  ; $i++) {
-
                     echo  '<tr>';
                     echo  '<td>'.$_SESSION['admin_gcCart'][$i]['meals'].'</td>';
                     echo  '<td><input style="height:20px" type="hidden" name="price" id="'.$_SESSION['admin_gcCart'][$i]['mealid'].'price"  value="'.$_SESSION['admin_gcCart'][$i]['price'].'"/> '.$_SESSION['admin_gcCart'][$i]['price'].'</td>';
@@ -140,37 +126,28 @@ require_once("../../include/initialize.php");
                     echo  '<td align="center"> <output id="Osubtot'.$_SESSION['admin_gcCart'][$i]['mealid'].'">'.$_SESSION['admin_gcCart'][$i]['subtotal'].'</output></td>';
                     echo '<td><a class="btn btn-xs btn-danger removecartadmin" style="text-decoration:none;" data-id='.$_SESSION['admin_gcCart'][$i]['mealid'].' ><i class="fa fa-shopping-cart"></i></a></td>';
                     echo  '</tr>';
-
                         $cart += $_SESSION['admin_gcCart'][$i]['qty'];
                         $subtotal += $_SESSION['admin_gcCart'][$i]['subtotal'];
              }
-
-
           }
                 // echo  '<tr>
                 //             <td colspan="3" ><p class="stot">Total</p></td>
                 //             <td> &#36; <span id="sum" class="stot">'. $subtotal.'</span></td>
                 //             <td>
                 //           </tr>';
-
-
                           ?>
-
   </tbody>
 </table>
             <?php
               if ($subtotal > 0) {
              ?>
-
              <div id="placeorder">
               <div class="row" >
                 <label class="col-xs-2"  style="height: 30px;text-align:  center; font-size: 13px">Mesa No.</label>
                 <div class="col-xs-2">
                   <select style="font-size:15px;" name="tableno" id="tableno">
-
                                   <?php
                             //Statement
-
                         // $mydb->setQuery("SELECT * FROM `tbltable` where STATUS = 'Occupied' AND `RESERVEDDATE`='".date_create('Y-m-d')."' order by asc");
                         // $cur = $mydb->loadResultList();
                         //  foreach ($cur as $result) {
@@ -181,18 +158,16 @@ require_once("../../include/initialize.php");
                                       //Statement
                                     $mydb->setQuery("SELECT * FROM `tbltable`  WHERE STATUS='Available'   order by TABLENO asc");
                                     $cur = $mydb->loadResultList();
-
                                   foreach ($cur as $result) {
                                     echo  '<option value='.$result->TABLENO.' >'.$result->TABLENO.'</option>';
                                     }
                                     ?>
                                        </select>
                 </div>
-
                    <div style="font-size:15px;" class="col-xs-2">
                   <select style="font-size:15px;" name="REMARKS" id="REMARKS">
-                    <option value="DineIn">Cenar en mesa(Dine In)</option>
-                    <option value="TakeOut">Para llevar (Take Out)</option>
+                    <option value="Servir">Servir</option>
+                    <option value="Llevar">Llevar</option>
                   </select>
                 </div>
                 <div class="col-xs-2">
@@ -202,11 +177,8 @@ require_once("../../include/initialize.php");
              </div>
           <div class="clear"></div>
           <?php } ?>
-
 </div>
           </form>
-
-
   </div>
 <!-- end panel sign up -->
 </div>
@@ -217,6 +189,5 @@ require_once("../../include/initialize.php");
                   "sort": false,
                   "lengthChange" : false
         });
-
     });
    </script>

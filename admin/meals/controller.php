@@ -1,4 +1,6 @@
 <?php
+
+ERROR_REPORTING('E_ALL');
 require_once ("../../include/initialize.php");
   if (!isset($_SESSION['ADMIN_USERID'])){
       redirect("../admin/index.php");
@@ -120,11 +122,11 @@ function doInsert(){
 		// }
 	}
 	function doupdateimage(){
-			$errofile = $_FILES['photo']['error'];
-			$type = $_FILES['photo']['type'];
-			$temp = $_FILES['photo']['tmp_name'];
-			$myfile =$_FILES['photo']['name'];
-		 	$location="uploaded_photos/".$myfile;
+			$errofile  = $_FILES['photo']['error'];
+			$type      = $_FILES['photo']['type'];
+			$temp      = $_FILES['photo']['tmp_name'];
+			$myfile    = $_FILES['photo']['name'];
+		 	$location = "uploaded_photos/".$myfile;
 		if ( $errofile > 0) {
 				// message("No Image Selected!", "error");
 				redirect("index.php");
@@ -136,6 +138,7 @@ function doInsert(){
 			if ($image_size==FALSE ) {
 				message("Uploaded file is not an image!", "error");
 				redirect("index.php?view=view&id=". $_POST['MENUID']);
+                $error="Uploaded file is not an image! error";
 			}else{
 					//uploading the file
 					move_uploaded_file($temp,"uploaded_photos/" . $myfile);
@@ -145,8 +148,13 @@ function doInsert(){
 					// redirect("index.php");
 					message("Image successfully Updated!", "success");
 					redirect("index.php?view=view&id=".$_POST['mealid']);
+                     $dos="Image successfully Updated!";
 			}
 		}
+
+        //   return "echo";
+
+        return  array('error' =>$errofile ,'2' => $dos );
 		}
 	function setBanner(){
 		$promo = New Promo();
